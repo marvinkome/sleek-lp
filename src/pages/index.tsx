@@ -49,7 +49,7 @@ const Home: NextPage = () => {
             <Heading
               textAlign="center"
               fontSize={{ base: '1rem', md: '48px' }}
-              fontWeight="bold"
+              fontWeight="600"
               color="#0F0F0F"
               lineHeight="68px"
             >
@@ -190,7 +190,7 @@ const Home: NextPage = () => {
             <Stack flex="1" spacing="4">
               <h1
                 style={{
-                  fontSize: '60px',
+                  fontSize: '58px',
                   fontWeight: '800',
                   color: 'rgba(83, 82, 237, 0.48)'
                 }}
@@ -203,7 +203,6 @@ const Home: NextPage = () => {
                 w="600px"
                 fontSize={{ base: '1rem', md: '1.125rem' }}
                 opacity="0.87"
-                py="2"
               >
                 With a beautiful form that supports one-click payments across
                 different networks and devices.
@@ -230,7 +229,7 @@ const Home: NextPage = () => {
           <Stack
             direction="row"
             px={{ base: '1.2rem', md: '12rem' }}
-            // spacing="32"
+            spacing="12"
           >
             <Stack
               spacing="22rem"
@@ -240,7 +239,7 @@ const Home: NextPage = () => {
               zIndex="-2"
             >
               <Stack>
-                <Icon viewBox="0 0 1 377" w="1" h="44rem" position="absolute">
+                <Icon viewBox="0 0 1 377" w="1" h="30rem" position="absolute">
                   <line
                     x1="0.4"
                     y1="-1.74846e-08"
@@ -255,7 +254,7 @@ const Home: NextPage = () => {
                 <Icon
                   viewBox="0 0 1 377"
                   w="0.5"
-                  h="135rem"
+                  h="105rem"
                   mt="-24rem"
                   position="absolute"
                 >
@@ -273,7 +272,7 @@ const Home: NextPage = () => {
               </Stack>
 
               <Stack>
-                <Icon viewBox="0 0 1 377" w="0.5" h="44rem" position="absolute">
+                <Icon viewBox="0 0 1 377" w="0.5" h="30rem" position="absolute">
                   <line
                     x1="0.4"
                     y1="-1.74846e-08"
@@ -288,7 +287,7 @@ const Home: NextPage = () => {
                 <Icon
                   viewBox="0 0 1 377"
                   w="0.5"
-                  h="135rem"
+                  h="105rem"
                   mt="-24rem"
                   position="absolute"
                 >
