@@ -11,7 +11,7 @@ export default extendTheme({
     global: {
       body: {
         color: '#2F3542',
-        fontWeight: 500,
+        fontWeight: 400,
         webkitFontSmoothing: 'antialiased'
       },
       button: {
@@ -32,11 +32,11 @@ export default extendTheme({
 
     Link: {
       baseStyle: {
-        borderBottom: '1px solid',
+        // borderBottom: '1px solid',
         fontFamily: 'Poppins, sans-serif',
         _hover: {
-          textDecoration: 'none',
-          transform: 'scale(1.05)'
+          textDecoration: 'none'
+          // transform: 'scale(1.01)'
         },
         _focus: {
           boxShadow: 'none'
@@ -87,14 +87,14 @@ export default extendTheme({
         },
 
         solid: {
-          backgroundColor: '#004BFF',
+          backgroundColor: '#0F0F0F',
           // border: '1px solid #004BFF',
-          rounded: '0px',
+          rounded: '8px',
           color: '#FEF8EC',
           px: 12,
           py: 8,
           _hover: {
-            backgroundColor: '#FFEA3C',
+            backgroundColor: '#0F0F0F',
             transform: 'scale(1.02)'
             // _disabled: {
             //   backgroundColor: 'rgb(0 0 0 / 95%)'
@@ -181,18 +181,18 @@ export default extendTheme({
 
         flushed: {
           field: {
-            borderBottom: '1px solid rgb(0 0 0 / 24%)',
+            borderBottom: '1px solid rgb(47 53 66 / 24%)',
 
             _hover: {
-              borderColor: 'rgb(0 0 0 / 60%)'
+              borderColor: 'rgb(47 53 66 / 60%)'
             },
 
             _placeholder: {
-              color: 'rgb(0 0 0 / 12%)'
+              color: 'rgb(47 53 66 / 48%)'
             },
 
             _focus: {
-              borderColor: 'rgb(0 0 0 / 60%)',
+              borderColor: 'rgb(47 53 66 / 60%)',
               outline: 'none',
               boxShadow: 'none'
             }

@@ -3,10 +3,11 @@ import {
   Button,
   chakra,
   Container,
+  Flex,
   Heading,
   Icon,
   Image,
-  // Link,
+  Input,
   Stack,
   Text
 } from '@chakra-ui/react'
@@ -15,7 +16,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import Layout from '../components/layout'
-import Link from 'components/link'
+import Link from '../components/link'
+import { FormGroup } from 'components/form-group'
 
 const Home: NextPage = () => {
   return (
@@ -53,7 +55,12 @@ const Home: NextPage = () => {
             >
               The new standard in crypto payment for internet businesses
             </Heading>
-            <Text align="center" w="579px">
+            <Text
+              align="center"
+              w="624px"
+              fontSize={{ base: '1rem', md: '1.125rem' }}
+              opacity="0.87"
+            >
               Sleek offers unified APIs and tools that instantly enable
               developers and businesses to accept and process crypto payments
               globally.
@@ -61,7 +68,7 @@ const Home: NextPage = () => {
           </Stack>
           <Stack direction="row" spacing="5" py={{ base: '4', md: '4rem' }}>
             <Link
-              href="/"
+              href="#"
               as={Button}
               variant="secondary"
               rightIcon={<FiChevronRight size="20px" />}
@@ -97,11 +104,27 @@ const Home: NextPage = () => {
       <Container
         maxW="100%"
         px={{ base: '1.2rem', md: '0' }}
-        py={{ base: '1.2rem', md: '8rem' }}
+        // py={{ base: '1.2rem', md: '8rem' }}
         h="100%"
       >
-        <chakra.section>
-          <Stack direction="row" px={{ base: '1.2rem', md: '12rem' }}>
+        <chakra.section py={{ base: '1.2rem', md: '8rem' }}>
+          <Stack
+            direction="row"
+            align="center"
+            px={{ base: '1.2rem', md: '12rem' }}
+          >
+            <Icon viewBox="0 0 1 377" w="1" h="377">
+              <line
+                x1="0.4"
+                y1="-1.74846e-08"
+                x2="0.400016"
+                y2="377"
+                stroke="#2F3542"
+                strokeOpacity="0.24"
+                strokeWidth="0.8"
+                strokeDasharray="6 6"
+              />
+            </Icon>
             <Stack flex="1" spacing="4">
               <Heading color="rgba(83, 107, 236, 0.36)" fontSize="48px">
                 Designed for{' '}
@@ -109,32 +132,355 @@ const Home: NextPage = () => {
               <Heading color="#536BEC" fontSize="64px">
                 Developers First
               </Heading>
-              <Text w="615px">
+              <Text
+                w="548px"
+                fontSize={{ base: '1rem', md: '1.125rem' }}
+                opacity="0.87"
+                py="4"
+              >
                 With simple APIs that let you focus on building great products,
-                Setting up payment is as easy as Snippet.
+                Setting up payment is as easy as Snippet!
               </Text>
+
               <Link
                 href="/"
                 as={Button}
-                variant="secondary"
+                variant="solid"
                 rightIcon={<FiChevronRight size="20px" />}
                 fontWeight="600"
                 px="12"
                 py="6"
+                w="208px"
               >
-                See Demo
+                Explore Docs
               </Link>
             </Stack>
 
             <Stack
               flex="1"
-              bgImage="url(/snippet.svg)"
-              bgRepeat="no-repeat"
-              bgSize={{ base: '8rem', md: 'cover' }}
-              bgPosition="center center"
-              h="300px"
+              userSelect="none"
+              pointerEvents="none"
               maxW="100%"
-            />
+              height="100%"
+            >
+              <Image src="/snippet.svg" alt="Code" boxSize="100%" />
+            </Stack>
+          </Stack>
+        </chakra.section>
+
+        <chakra.section py={{ base: '1.2rem', md: '4rem' }}>
+          <Stack
+            direction="row-reverse"
+            align="center"
+            px={{ base: '1.2rem', md: '12rem' }}
+            spacing="24"
+          >
+            {/* <Icon viewBox="0 0 1 377" w="1" h="377" position="absolute">
+              <line
+                x1="0.4"
+                y1="-1.74846e-08"
+                x2="0.400016"
+                y2="377"
+                stroke="#2F3542"
+                strokeOpacity="0.24"
+                strokeWidth="0.8"
+                strokeDasharray="6 6"
+              />
+            </Icon> */}
+            <Stack flex="1" spacing="4">
+              <h1
+                style={{
+                  fontSize: '60px',
+                  fontWeight: '800',
+                  color: 'rgba(83, 82, 237, 0.48)'
+                }}
+              >
+                The best{' '}
+                <span style={{ color: '#5352ED' }}>~Pay With Crypto~</span>{' '}
+                experience for your customers
+              </h1>
+              <Text
+                w="600px"
+                fontSize={{ base: '1rem', md: '1.125rem' }}
+                opacity="0.87"
+                py="2"
+              >
+                With a beautiful form that supports one-click payments across
+                different networks and devices.
+              </Text>
+            </Stack>
+
+            <Stack
+              flex="1"
+              userSelect="none"
+              pointerEvents="none"
+              maxW="100%"
+              height="100%"
+            >
+              <Image
+                src="/pay-crypto.png"
+                alt="Sleekpay crypto form"
+                boxSize="100%"
+              />
+            </Stack>
+          </Stack>
+        </chakra.section>
+
+        <chakra.section py={{ base: '1.2rem', md: '6rem' }}>
+          <Stack
+            direction="row"
+            px={{ base: '1.2rem', md: '12rem' }}
+            // spacing="32"
+          >
+            <Stack
+              spacing="22rem"
+              direction="row"
+              pos="absolute"
+              mt="-28rem"
+              zIndex="-2"
+            >
+              <Stack>
+                <Icon viewBox="0 0 1 377" w="1" h="44rem" position="absolute">
+                  <line
+                    x1="0.4"
+                    y1="-1.74846e-08"
+                    x2="0.400016"
+                    y2="377"
+                    stroke="#2F3542"
+                    strokeOpacity="0.12"
+                    strokeWidth="0.8"
+                    strokeDasharray="6 6"
+                  />
+                </Icon>
+                <Icon
+                  viewBox="0 0 1 377"
+                  w="0.5"
+                  h="135rem"
+                  mt="-24rem"
+                  position="absolute"
+                >
+                  <line
+                    x1="0.4"
+                    y1="-1.74846e-08"
+                    x2="0.400016"
+                    y2="377"
+                    stroke="#2F3542"
+                    strokeOpacity="0.12"
+                    strokeWidth="0.8"
+                    strokeDasharray="6 6"
+                  />
+                </Icon>
+              </Stack>
+
+              <Stack>
+                <Icon viewBox="0 0 1 377" w="0.5" h="44rem" position="absolute">
+                  <line
+                    x1="0.4"
+                    y1="-1.74846e-08"
+                    x2="0.400016"
+                    y2="377"
+                    stroke="#2F3542"
+                    strokeOpacity="0.08"
+                    strokeWidth="0.8"
+                    strokeDasharray="6 6"
+                  />
+                </Icon>
+                <Icon
+                  viewBox="0 0 1 377"
+                  w="0.5"
+                  h="135rem"
+                  mt="-24rem"
+                  position="absolute"
+                >
+                  <line
+                    x1="0.4"
+                    y1="-1.74846e-08"
+                    x2="0.400016"
+                    y2="377"
+                    stroke="#2F3542"
+                    strokeOpacity="0.08"
+                    strokeWidth="0.8"
+                    strokeDasharray="6 6"
+                  />
+                </Icon>
+              </Stack>
+              <Stack>
+                <Icon
+                  viewBox="0 0 1 377"
+                  w="0.5"
+                  h="65rem"
+                  mt="-24rem"
+                  position="absolute"
+                >
+                  <line
+                    x1="0.4"
+                    y1="-1.74846e-08"
+                    x2="0.400016"
+                    y2="377"
+                    stroke="#2F3542"
+                    strokeOpacity="0.06"
+                    strokeWidth="0.8"
+                    strokeDasharray="6 6"
+                  />
+                </Icon>
+                <Icon
+                  viewBox="0 0 1 377"
+                  w="0.5"
+                  h="112rem"
+                  mt="-24rem"
+                  position="absolute"
+                >
+                  <line
+                    x1="0.4"
+                    y1="-1.74846e-08"
+                    x2="0.400016"
+                    y2="377"
+                    stroke="#2F3542"
+                    strokeOpacity="0.06"
+                    strokeWidth="0.8"
+                    strokeDasharray="6 6"
+                  />
+                </Icon>
+              </Stack>
+            </Stack>
+
+            <Stack flex="1" spacing="4" pt="12">
+              <Heading color="#536BEC" fontSize="64px" lineHeight="88px">
+                Crypto Payment
+                <Flex color="rgba(83, 107, 236, 0.36)">
+                  infrastructure for Everyone
+                </Flex>
+              </Heading>
+              <Text
+                w="600px"
+                fontSize={{ base: '1rem', md: '1.125rem' }}
+                opacity="0.87"
+                py="4"
+              >
+                Whether you&apos;re building a marketplace or accepting crypto
+                payments, Sleek has the features you need.
+              </Text>
+
+              <Stack direction="row" spacing="5" py={{ base: '4', md: '1rem' }}>
+                <Button variant="primary" bgColor="#3742FA" px="12" py="6">
+                  Sign Up
+                </Button>
+                <Link
+                  href="#"
+                  as={Button}
+                  variant="secondary"
+                  bgColor="#EFF0FF"
+                  color="#3742FA"
+                  rightIcon={<FiChevronRight size="20px" />}
+                  fontWeight="600"
+                  px="8"
+                  py="6"
+                >
+                  See Demo
+                </Link>
+              </Stack>
+            </Stack>
+
+            <Stack
+              flex="1"
+              userSelect="none"
+              pointerEvents="none"
+              maxW="100%"
+              height="100%"
+            >
+              <Image
+                src="/infra.svg"
+                alt="Sleekpay Infrastructure"
+                boxSize="100%"
+              />
+            </Stack>
+          </Stack>
+        </chakra.section>
+
+        <chakra.section
+          h="448px"
+          mt="18rem"
+          bgColor="rgba(83, 107, 236, 0.04)"
+          // borderTop="1px dashed rgba(47, 53, 66, 0.12)"
+          // borderBottom="1px dashed rgba(47, 53, 66, 0.12)"
+        >
+          <Stack direction="row" px={{ base: '', md: '16rem' }} spacing="24">
+            <Stack position="relative" mt="-28">
+              <Image
+                src="/yello.svg"
+                pos="absolute"
+                top="-3rem"
+                left="-4rem"
+                alt="Code"
+                boxSize="35%"
+              />
+              <Image
+                src="/berry.svg"
+                pos="absolute"
+                bottom="-1rem"
+                right="-1rem"
+                alt="Code"
+                boxSize="28"
+              />
+
+              <Stack
+                bg="rgba(255, 255, 255, 0.7)"
+                boxShadow="rgba(164, 176, 190, 0.15) 0px 48px 100px 0px"
+                backdropFilter=" blur(24px)"
+                borderRadius="12"
+                px="12"
+                py="12"
+                spacing="8"
+              >
+                <Image src="/sleek-mark.svg" alt="Sleek" boxSize="50" />
+
+                <FormGroup id="name">
+                  <Input
+                    w="24rem"
+                    type="text"
+                    placeholder="Email"
+                    variant="flushed"
+                  />
+                </FormGroup>
+                <FormGroup id="name">
+                  <Input
+                    type="text"
+                    placeholder="Full name"
+                    variant="flushed"
+                  />
+                </FormGroup>
+                <FormGroup id="name">
+                  <Input
+                    type="text"
+                    placeholder="Organization"
+                    variant="flushed"
+                  />
+                </FormGroup>
+
+                <Button
+                  type="submit"
+                  variant="primary"
+                  bgColor="#3742FA"
+                  px="12"
+                  py="6"
+                >
+                  Sign me up
+                </Button>
+              </Stack>
+            </Stack>
+
+            <Stack flex="1" spacing="8">
+              <Heading color="#0F0F0F" mt="-16" fontSize="64px">
+                Sign Up!
+              </Heading>
+              <Text
+                w="600px"
+                fontSize={{ base: '1rem', md: '1.125rem' }}
+                pb="2"
+              >
+                Join our beta list and be the first to get notified.
+              </Text>
+            </Stack>
           </Stack>
         </chakra.section>
       </Container>

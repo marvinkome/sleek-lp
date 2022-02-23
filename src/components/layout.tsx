@@ -9,8 +9,9 @@ import {
   Stack,
   Text
 } from '@chakra-ui/react'
-import NextLink, { default as Link } from 'next/link'
+import NextLink from 'next/link'
 import React from 'react'
+import Link from 'components/link'
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -25,26 +26,30 @@ const Layout: React.FC = ({ children }) => {
           justify="space-between"
           // px="20rem"
           // py="2rem"
-          h="100px"
+          h="90px"
           maxW="100%"
           pos="absolute"
           top="0"
           left="16rem"
           right="16rem"
-          borderBottom="1px solid rgba(17, 17, 17, 0.08)"
+          borderBottom="1px solid rgba(47, 53, 66, 0.08)"
           zIndex="2"
         >
           <Stack flex="1">
-            <Link href="/">
+            <Link borderBottom="none" href="/">
               <Image src="/sleek-logo.svg" alt="Sleek" boxSize="120" />
             </Link>
           </Stack>
-          <Stack direction="row" align="center" spacing="12">
+          <Stack direction="row" align="center" spacing="10">
             <NextLink href="/process" passHref>
-              Documentation
+              <Link fontFamily="Poppins" fontSize="15px" fontWeight="500">
+                Documentation
+              </Link>
             </NextLink>
-            <NextLink href="mailto:reach@practicallab.org" passHref>
-              Contact
+            <NextLink href="mailto:contact@sleek.app" passHref>
+              <Link fontFamily="Poppins" fontSize="15px" fontWeight="500">
+                Contact
+              </Link>
             </NextLink>
           </Stack>
         </Stack>
