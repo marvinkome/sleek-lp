@@ -1,12 +1,11 @@
-import { chakra, Image, Stack, Text } from '@chakra-ui/react'
-import NextLink from 'next/link'
-import React from 'react'
-import Link from 'components/link'
+import { chakra, Image, Stack, Text, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
+import React from "react";
 
 const Layout: React.FC = ({ children }) => {
   return (
     <>
-      <chakra.nav display={{ base: 'none', md: 'block' }}>
+      <chakra.nav display={{ base: "none", md: "block" }}>
         <Stack
           align="center"
           direction="row"
@@ -40,11 +39,7 @@ const Layout: React.FC = ({ children }) => {
         </Stack>
       </chakra.nav>
 
-      <chakra.nav
-        borderBottom="1px solid rgba(0, 0, 0, 0.08)"
-        bg="#FEF8EC"
-        display={{ base: 'block', md: 'none' }}
-      >
+      <chakra.nav borderBottom="1px solid rgba(0, 0, 0, 0.08)" bg="#FEF8EC" display={{ base: "block", md: "none" }}>
         <Stack
           align="center"
           direction="row"
@@ -60,34 +55,18 @@ const Layout: React.FC = ({ children }) => {
         >
           <Stack>
             <Link borderBottom="none" href="/">
-              <Image
-                src="/sleek-logo.svg"
-                alt="Sleek Logo"
-                boxSize={{ base: '100', md: '120' }}
-              />
+              <Image src="/sleek-logo.svg" alt="Sleek Logo" boxSize={{ base: "100", md: "120" }} />
             </Link>
           </Stack>
 
-          <Stack
-            direction="row"
-            align="center"
-            spacing={{ base: '4', md: '10' }}
-          >
+          <Stack direction="row" align="center" spacing={{ base: "4", md: "10" }}>
             <NextLink href="/process" passHref>
-              <Link
-                fontFamily="Poppins"
-                fontSize={{ base: '14px', md: '15px' }}
-                fontWeight="500"
-              >
+              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
                 Documentation
               </Link>
             </NextLink>
             <NextLink href="mailto:contact@sleek.app" passHref>
-              <Link
-                fontFamily="Poppins"
-                fontSize={{ base: '14px', md: '15px' }}
-                fontWeight="500"
-              >
+              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
                 Contact
               </Link>
             </NextLink>
@@ -102,46 +81,30 @@ const Layout: React.FC = ({ children }) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        py={{ base: '4', md: '8' }}
+        py={{ base: "4", md: "8" }}
         borderTop="1px solid rgba(254, 248, 236, 0.12)"
       >
         <Stack
           w="100%"
-          px={{ base: '1rem', md: '12rem' }}
-          display={{ base: 'inline-block', md: 'flex' }}
+          px={{ base: "1rem", md: "12rem" }}
+          display={{ base: "inline-block", md: "flex" }}
           direction="row"
           justify="space-between"
         >
           <Stack>
             <Link display="block" borderBottom="none" href="/">
-              <Image
-                src="/sleek-logo.svg"
-                alt="Sleek Logo"
-                boxSize={{ base: '100', md: '120' }}
-              />
+              <Image src="/sleek-logo.svg" alt="Sleek Logo" boxSize={{ base: "100", md: "120" }} />
             </Link>
           </Stack>
 
-          <Stack
-            direction="row"
-            align="center"
-            spacing={{ base: '4', md: '10' }}
-          >
+          <Stack direction="row" align="center" spacing={{ base: "4", md: "10" }}>
             <NextLink href="/process" passHref>
-              <Link
-                fontFamily="Poppins"
-                fontSize={{ base: '14px', md: '15px' }}
-                fontWeight="500"
-              >
+              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
                 Documentation
               </Link>
             </NextLink>
             <NextLink href="mailto:contact@sleek.app" passHref>
-              <Link
-                fontFamily="Poppins"
-                fontSize={{ base: '14px', md: '15px' }}
-                fontWeight="500"
-              >
+              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
                 Contact
               </Link>
             </NextLink>
@@ -150,7 +113,7 @@ const Layout: React.FC = ({ children }) => {
         </Stack>
       </chakra.footer>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
