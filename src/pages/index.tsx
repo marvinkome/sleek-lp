@@ -1,14 +1,56 @@
-import { Box, Link, Button, chakra, Container, Flex, Heading, Icon, Image, Input, Stack, Text } from "@chakra-ui/react";
-import { FiChevronRight } from "react-icons/fi";
-import type { NextPage } from "next";
+import React from "react";
+import ReactGA from "react-ga";
 import Head from "next/head";
 import Layout from "../components/layout";
+import { Link, Button, chakra, Container, Flex, Heading, Icon, Image, Input, Stack, Text } from "@chakra-ui/react";
+import { FiChevronRight } from "react-icons/fi";
 import { FormGroup } from "components/form-group";
 import { motion } from "framer-motion";
 
-const Home: NextPage = () => {
+const Home = () => {
+  const [submitted, setSubmitted] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
+
   const goToId = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const submitForm = async (e: React.FormEvent) => {
+    const name = (e.target as any)["name"].value;
+    const email = (e.target as any)["email"].value;
+    const organization = (e.target as any)["organization"].value;
+
+    ReactGA.event({
+      category: "User",
+      action: "Tried to create account",
+    });
+
+    setSubmitting(true);
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        body: JSON.stringify({ name, email, organization }),
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      setSubmitted(true);
+      ReactGA.event({
+        category: "User",
+        action: "Created account",
+      });
+    } catch (e: any) {
+      // send error to GA
+      ReactGA.event({
+        category: "User",
+        action: "Failed to create account",
+        label: e.message,
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -338,6 +380,7 @@ const Home: NextPage = () => {
               <Image src="/berry.svg" pos="absolute" bottom="-1rem" right="-1rem" alt="illustration" boxSize="28" />
 
               <Stack
+                as="form"
                 bg="rgba(255, 255, 255, 0.7)"
                 boxShadow="rgba(164, 176, 190, 0.15) 0px 48px 100px 0px"
                 backdropFilter=" blur(24px)"
@@ -345,22 +388,33 @@ const Home: NextPage = () => {
                 px="12"
                 py="12"
                 spacing="8"
+                minH="27rem"
+                justify="center"
+                onSubmit={submitForm}
               >
-                <Image src="/sleek-mark.svg" alt="Sleek" boxSize="50" />
+                {!submitted ? (
+                  <>
+                    <Image src="/sleek-mark.svg" alt="Sleek" boxSize="50" />
 
-                <FormGroup id="name">
-                  <Input w={{ base: "100%", md: "24rem" }} type="text" placeholder="Email" variant="flushed" />
-                </FormGroup>
-                <FormGroup id="name">
-                  <Input type="text" placeholder="Full name" variant="flushed" />
-                </FormGroup>
-                <FormGroup id="name">
-                  <Input type="text" placeholder="Organization" variant="flushed" />
-                </FormGroup>
+                    <FormGroup id="email">
+                      <Input w={{ base: "100%", md: "24rem" }} id="email" type="email" placeholder="Email" variant="flushed" />
+                    </FormGroup>
+                    <FormGroup id="name">
+                      <Input id="name" type="text" placeholder="Full name" variant="flushed" />
+                    </FormGroup>
+                    <FormGroup id="organization">
+                      <Input id="organization" type="text" placeholder="Organization" variant="flushed" />
+                    </FormGroup>
 
-                <Button type="submit" variant="primary" bgColor="#3742FA" px="12" py="6">
-                  Sign me up
-                </Button>
+                    <Button type="submit" variant="primary" bgColor="#3742FA" px="12" py="6" isLoading={submitting}>
+                      Sign me up
+                    </Button>
+                  </>
+                ) : (
+                  <Text w={{ base: "100%", md: "24rem" }} textAlign="center">
+                    Thanks for signing up.
+                  </Text>
+                )}
               </Stack>
             </Stack>
 
