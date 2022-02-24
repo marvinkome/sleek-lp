@@ -18,6 +18,7 @@ import NextLink from 'next/link'
 import Layout from '../components/layout'
 import Link from '../components/link'
 import { FormGroup } from 'components/form-group'
+import base from '@emotion/styled/types/base'
 
 const Home: NextPage = () => {
   return (
@@ -35,9 +36,9 @@ const Home: NextPage = () => {
         maxW="100%"
         bgImage="url(/header.png)"
         bgRepeat="no-repeat"
-        bgSize={{ base: '8rem', md: 'cover' }}
+        bgSize={{ base: 'cover', md: 'cover' }}
         bgPosition="center center"
-        px={{ base: '1.2rem', md: '0' }}
+        px={{ base: '0', md: '0' }}
         h="100vh"
         d="flex"
         flexDirection="column"
@@ -47,17 +48,17 @@ const Home: NextPage = () => {
         <Stack align="center" justify="center">
           <Stack align="center" px={{ base: '4', md: '28rem' }} spacing="8">
             <Heading
-              textAlign="center"
-              fontSize={{ base: '1rem', md: '48px' }}
-              fontWeight="600"
+              textAlign={{ base: 'left', md: 'center' }}
+              fontSize={{ base: '2.48rem', md: '3rem' }}
+              fontWeight={{ base: '600', md: '600' }}
               color="#0F0F0F"
-              lineHeight="68px"
+              lineHeight={{ base: '3rem', md: '4.25rem' }}
             >
               The new standard in crypto payment for internet businesses
             </Heading>
             <Text
-              align="center"
-              w="624px"
+              textAlign={{ base: 'left', md: 'center' }}
+              w={{ base: '100%', md: '624px' }}
               fontSize={{ base: '1rem', md: '1.125rem' }}
               opacity="0.87"
             >
@@ -66,19 +67,27 @@ const Home: NextPage = () => {
               globally.
             </Text>
           </Stack>
-          <Stack direction="row" spacing="5" py={{ base: '4', md: '4rem' }}>
+          <Stack
+            direction="row"
+            align={{ base: 'flex-start', md: 'center' }}
+            justify={{ base: 'flex-start', md: 'center' }}
+            w="100%"
+            spacing={{ base: '4', md: '5' }}
+            py={{ base: '4', md: '4rem' }}
+            px={{ base: '4', md: '0' }}
+          >
             <Link
               href="#"
               as={Button}
               variant="secondary"
               rightIcon={<FiChevronRight size="20px" />}
               fontWeight="600"
-              px="12"
+              px={{ base: '8', md: '12' }}
               py="6"
             >
               See Demo
             </Link>
-            <Button variant="primary" px="12" py="6">
+            <Button variant="primary" px={{ base: '12', md: '12' }} py="6">
               Sign Up
             </Button>
           </Stack>
@@ -101,39 +110,42 @@ const Home: NextPage = () => {
         </Stack>
       </Container>
 
-      <Container
-        maxW="100%"
-        px={{ base: '1.2rem', md: '0' }}
-        // py={{ base: '1.2rem', md: '8rem' }}
-        h="100%"
-      >
-        <chakra.section py={{ base: '1.2rem', md: '8rem' }}>
+      <Container maxW="100%" h="100%">
+        <chakra.section py={{ base: '2rem', md: '8rem' }}>
           <Stack
-            direction="row"
+            direction={{ base: 'column', md: 'row' }}
             align="center"
-            px={{ base: '1.2rem', md: '12rem' }}
+            px={{ base: '0', md: '12rem' }}
           >
-            <Icon viewBox="0 0 1 377" w="1" h="377">
-              <line
-                x1="0.4"
-                y1="-1.74846e-08"
-                x2="0.400016"
-                y2="377"
-                stroke="#2F3542"
-                strokeOpacity="0.24"
-                strokeWidth="0.8"
-                strokeDasharray="6 6"
-              />
-            </Icon>
-            <Stack flex="1" spacing="4">
-              <Heading color="rgba(83, 107, 236, 0.36)" fontSize="48px">
-                Designed for{' '}
+            <Stack display={{ base: 'none', md: 'block' }}>
+              <Icon viewBox="0 0 1 377" w="1" h="377">
+                <line
+                  x1="0.4"
+                  y1="-1.74846e-08"
+                  x2="0.400016"
+                  y2="377"
+                  stroke="#2F3542"
+                  strokeOpacity="0.24"
+                  strokeWidth="0.8"
+                  strokeDasharray="6 6"
+                />
+              </Icon>
+            </Stack>
+            <Stack flex="1" spacing={{ base: '2', md: '4' }}>
+              <Heading
+                color="rgba(83, 107, 236, 0.36)"
+                fontSize={{ base: '2rem', md: '3rem' }}
+              >
+                Designed for
               </Heading>
-              <Heading color="#536BEC" fontSize="64px">
+              <Heading
+                color="#536BEC"
+                fontSize={{ base: '2.25rem', md: '4rem' }}
+              >
                 Developers First
               </Heading>
               <Text
-                w="548px"
+                w={{ base: '100%', md: '548px' }}
                 fontSize={{ base: '1rem', md: '1.125rem' }}
                 opacity="0.87"
                 py="4"
@@ -170,24 +182,12 @@ const Home: NextPage = () => {
 
         <chakra.section py={{ base: '1.2rem', md: '4rem' }}>
           <Stack
-            direction="row-reverse"
+            direction={{ base: 'column', md: 'row-reverse' }}
             align="center"
-            px={{ base: '1.2rem', md: '12rem' }}
-            spacing="24"
+            px={{ base: '0', md: '12rem' }}
+            spacing={{ base: '12', md: '24' }}
           >
-            {/* <Icon viewBox="0 0 1 377" w="1" h="377" position="absolute">
-              <line
-                x1="0.4"
-                y1="-1.74846e-08"
-                x2="0.400016"
-                y2="377"
-                stroke="#2F3542"
-                strokeOpacity="0.24"
-                strokeWidth="0.8"
-                strokeDasharray="6 6"
-              />
-            </Icon> */}
-            <Stack flex="1" spacing="4">
+            <Stack display={{ base: 'none', md: 'flex' }} flex="1" spacing="4">
               <h1
                 style={{
                   fontSize: '58px',
@@ -200,7 +200,30 @@ const Home: NextPage = () => {
                 experience for your customers
               </h1>
               <Text
-                w="600px"
+                w={{ base: '100%', md: '600px' }}
+                fontSize={{ base: '1rem', md: '1.125rem' }}
+                opacity="0.87"
+              >
+                With a beautiful form that supports one-click payments across
+                different networks and devices.
+              </Text>
+            </Stack>
+
+            {/* Mobile display */}
+            <Stack display={{ base: 'flex', md: 'none' }} flex="1" spacing="4">
+              <h1
+                style={{
+                  fontSize: '32px',
+                  fontWeight: '800',
+                  color: 'rgba(83, 82, 237, 0.48)'
+                }}
+              >
+                The best{' '}
+                <span style={{ color: '#5352ED' }}>~Pay With Crypto~</span>{' '}
+                experience for your customers
+              </h1>
+              <Text
+                w={{ base: '100%', md: '600px' }}
                 fontSize={{ base: '1rem', md: '1.125rem' }}
                 opacity="0.87"
               >
@@ -218,7 +241,7 @@ const Home: NextPage = () => {
             >
               <Image
                 src="/pay-crypto.png"
-                alt="Sleekpay crypto form"
+                alt="Sleek pay crypto form"
                 boxSize="100%"
               />
             </Stack>
@@ -227,11 +250,12 @@ const Home: NextPage = () => {
 
         <chakra.section py={{ base: '1.2rem', md: '6rem' }}>
           <Stack
-            direction="row"
-            px={{ base: '1.2rem', md: '12rem' }}
-            spacing="12"
+            direction={{ base: 'column', md: 'row' }}
+            px={{ base: '0', md: '12rem' }}
+            spacing={{ base: '8', md: '12' }}
           >
             <Stack
+              display={{ base: 'none', md: 'block' }}
               spacing="22rem"
               direction="row"
               pos="absolute"
@@ -344,23 +368,27 @@ const Home: NextPage = () => {
             </Stack>
 
             <Stack flex="1" spacing="4" pt="12">
-              <Heading color="#536BEC" fontSize="64px" lineHeight="88px">
+              <Heading
+                color="#536BEC"
+                fontSize={{ base: '32px', md: '64px' }}
+                lineHeight={{ base: '48px', md: '88px' }}
+              >
                 Crypto Payment
                 <Flex color="rgba(83, 107, 236, 0.36)">
                   infrastructure for Everyone
                 </Flex>
               </Heading>
               <Text
-                w="600px"
+                w={{ base: '100%', md: '600px' }}
                 fontSize={{ base: '1rem', md: '1.125rem' }}
                 opacity="0.87"
-                py="4"
+                py={{ base: '2', md: '4' }}
               >
                 Whether you&apos;re building a marketplace or accepting crypto
                 payments, Sleek has the features you need.
               </Text>
 
-              <Stack direction="row" spacing="5" py={{ base: '4', md: '1rem' }}>
+              <Stack direction="row" spacing="5" py={{ base: '2', md: '1rem' }}>
                 <Button variant="primary" bgColor="#3742FA" px="12" py="6">
                   Sign Up
                 </Button>
@@ -397,20 +425,22 @@ const Home: NextPage = () => {
         </chakra.section>
 
         <chakra.section
-          h="448px"
+          h={{ base: '600px', md: '448px' }}
           mt="18rem"
           bgColor="rgba(83, 107, 236, 0.04)"
-          // borderTop="1px dashed rgba(47, 53, 66, 0.12)"
-          // borderBottom="1px dashed rgba(47, 53, 66, 0.12)"
         >
-          <Stack direction="row" px={{ base: '', md: '16rem' }} spacing="24">
+          <Stack
+            direction={{ base: 'column-reverse', md: 'row' }}
+            px={{ base: '0', md: '16rem' }}
+            spacing="24"
+          >
             <Stack position="relative" mt="-28">
               <Image
                 src="/yello.svg"
                 pos="absolute"
                 top="-3rem"
                 left="-4rem"
-                alt="Code"
+                alt="illustration"
                 boxSize="35%"
               />
               <Image
@@ -418,7 +448,7 @@ const Home: NextPage = () => {
                 pos="absolute"
                 bottom="-1rem"
                 right="-1rem"
-                alt="Code"
+                alt="illustration"
                 boxSize="28"
               />
 
@@ -430,12 +460,13 @@ const Home: NextPage = () => {
                 px="12"
                 py="12"
                 spacing="8"
+                // w="100%"
               >
                 <Image src="/sleek-mark.svg" alt="Sleek" boxSize="50" />
 
                 <FormGroup id="name">
                   <Input
-                    w="24rem"
+                    w={{ base: '100%', md: '24rem' }}
                     type="text"
                     placeholder="Email"
                     variant="flushed"
@@ -468,12 +499,21 @@ const Home: NextPage = () => {
               </Stack>
             </Stack>
 
-            <Stack flex="1" spacing="8">
-              <Heading color="#0F0F0F" mt="-16" fontSize="64px">
+            <Stack
+              flex="1"
+              spacing={{ base: '4', md: '8' }}
+              py={{ base: '4', md: '0' }}
+              zIndex="2"
+            >
+              <Heading
+                color="#0F0F0F"
+                mt="-16"
+                fontSize={{ base: '32px', md: '64px' }}
+              >
                 Sign Up!
               </Heading>
               <Text
-                w="600px"
+                w={{ base: '100%', md: '600px' }}
                 fontSize={{ base: '1rem', md: '1.125rem' }}
                 pb="2"
               >
