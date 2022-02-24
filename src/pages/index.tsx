@@ -7,6 +7,10 @@ import { FormGroup } from "components/form-group";
 import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
+  const goToId = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Layout>
       <Head>
@@ -70,7 +74,7 @@ const Home: NextPage = () => {
             >
               See Demo
             </Button>
-            <Button variant="primary" maxW={40} px={{ base: "12", md: "12" }} py="6">
+            <Button onClick={() => goToId("signup")} variant="primary" maxW={40} px={{ base: "12", md: "12" }} py="6">
               Sign Up
             </Button>
           </Stack>
@@ -89,12 +93,7 @@ const Home: NextPage = () => {
             animate={{ y: 0 }}
             transition={{ ease: "easeInOut", duration: 1, repeat: Infinity, repeatType: "reverse", repeatDelay: 0.2 }}
           >
-            <Icon
-              viewBox="0 0 16 30"
-              w="16"
-              h="30"
-              onClick={() => document.querySelector("#content")?.scrollIntoView({ behavior: "smooth" })}
-            >
+            <Icon viewBox="0 0 16 30" w="16" h="30" onClick={() => goToId("content")}>
               <path
                 d="M8 25.875C5.92893 25.875 4.25 24.1961 4.25 22.125C4.25 20.0539 5.92893 18.375 8 18.375C10.0711 18.375 11.75 20.0539 11.75 22.125C11.75 24.1961 10.0711 25.875 8 25.875ZM8 30C3.85786 30 0.5 26.6421 0.5 22.5L0.499999 7.5C0.499999 3.35787 3.85786 -1.46777e-07 8 -3.27835e-07C12.1421 -5.08894e-07 15.5 3.35786 15.5 7.5L15.5 22.5C15.5 26.6421 12.1421 30 8 30ZM2.375 22.5C2.375 25.6066 4.8934 28.125 8 28.125C11.1066 28.125 13.625 25.6066 13.625 22.5L13.625 7.5C13.625 4.3934 11.1066 1.875 8 1.875C4.8934 1.875 2.375 4.3934 2.375 7.5L2.375 22.5Z"
                 fill="#0F0F0F"
@@ -140,7 +139,16 @@ const Home: NextPage = () => {
             </Text>
 
             <div>
-              <Button href="/" as={Button} variant="solid" rightIcon={<FiChevronRight size="20px" />} fontWeight="600" px="12" py="6">
+              <Button
+                href="https://docs.sleekpay.app/"
+                as={Link}
+                isExternal
+                variant="solid"
+                rightIcon={<FiChevronRight size="20px" />}
+                fontWeight="600"
+                px="12"
+                py="6"
+              >
                 Explore Docs
               </Button>
             </div>
@@ -298,7 +306,7 @@ const Home: NextPage = () => {
               </Text>
 
               <Stack direction="row" spacing="5" py={{ base: "2", md: "1rem" }}>
-                <Button variant="primary" bgColor="#3742FA" px="12" py="6">
+                <Button onClick={() => goToId("signup")} variant="primary" bgColor="#3742FA" px="12" py="6">
                   Sign Up
                 </Button>
                 <Button
@@ -323,7 +331,7 @@ const Home: NextPage = () => {
           </Stack>
         </chakra.section>
 
-        <chakra.section h={{ base: "600px", md: "448px" }} mt="18rem" bgColor="rgba(83, 107, 236, 0.04)">
+        <chakra.section id="signup" h={{ base: "600px", md: "448px" }} mt="18rem" bgColor="rgba(83, 107, 236, 0.04)">
           <Stack direction={{ base: "column-reverse", md: "row" }} px={{ base: "0", md: "16rem" }} spacing="24">
             <Stack position="relative" mt="-28">
               <Image src="/yello.svg" pos="absolute" top="-3rem" left="-4rem" alt="illustration" boxSize="35%" />

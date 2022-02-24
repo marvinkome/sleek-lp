@@ -44,6 +44,11 @@ export default extendTheme({
     },
 
     Button: {
+      baseStyle: {
+        _focus: {
+          boxShadow: "none !important",
+        },
+      },
       sizes: {
         lg: {
           h: 16,

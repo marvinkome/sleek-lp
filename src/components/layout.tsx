@@ -1,5 +1,4 @@
 import { chakra, Image, Stack, Text, Link } from "@chakra-ui/react";
-import NextLink from "next/link";
 import React from "react";
 
 const Layout: React.FC = ({ children }) => {
@@ -25,16 +24,13 @@ const Layout: React.FC = ({ children }) => {
             </Link>
           </Stack>
           <Stack direction="row" align="center" spacing="10">
-            <NextLink href="/process" passHref>
-              <Link fontFamily="Poppins" fontSize="15px" fontWeight="500">
-                Documentation
-              </Link>
-            </NextLink>
-            <NextLink href="mailto:contact@sleek.app" passHref>
-              <Link fontFamily="Poppins" fontSize="15px" fontWeight="500">
+            <Link href="https://docs.sleekpay.app/" fontFamily="Poppins" fontSize="15px" fontWeight="500">
+              Documentation
+            </Link>
+
+            {/* <Link href="mailto:contact@sleek.app" fontFamily="Poppins" fontSize="15px" fontWeight="500">
                 Contact
-              </Link>
-            </NextLink>
+              </Link> */}
           </Stack>
         </Stack>
       </chakra.nav>
@@ -60,16 +56,13 @@ const Layout: React.FC = ({ children }) => {
           </Stack>
 
           <Stack direction="row" align="center" spacing={{ base: "4", md: "10" }}>
-            <NextLink href="/process" passHref>
-              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
-                Documentation
-              </Link>
-            </NextLink>
-            <NextLink href="mailto:contact@sleek.app" passHref>
-              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
-                Contact
-              </Link>
-            </NextLink>
+            <Link href="https://docs.sleekpay.app/" fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
+              Documentation
+            </Link>
+
+            {/* <Link href="mailto:contact@sleek.app" fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
+              Contact
+            </Link> */}
           </Stack>
         </Stack>
       </chakra.nav>
@@ -98,16 +91,14 @@ const Layout: React.FC = ({ children }) => {
           </Stack>
 
           <Stack direction="row" align="center" spacing={{ base: "4", md: "10" }}>
-            <NextLink href="/process" passHref>
-              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
-                Documentation
-              </Link>
-            </NextLink>
-            <NextLink href="mailto:contact@sleek.app" passHref>
-              <Link fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
-                Contact
-              </Link>
-            </NextLink>
+            <Link href="https://docs.sleekpay.app/" fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
+              Documentation
+            </Link>
+
+            {/* <Link href="mailto:contact@sleek.app" fontFamily="Poppins" fontSize={{ base: "14px", md: "15px" }} fontWeight="500">
+              Contact
+            </Link> */}
+
             <Text opacity="0.8">© Sleek</Text>
           </Stack>
         </Stack>
