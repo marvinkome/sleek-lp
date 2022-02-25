@@ -10,11 +10,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     switch (method) {
       case "POST": {
-        const { email, name, organization } = body;
+        console.log("Signup request", body);
+
+        const { email, name, organization } = JSON.parse(body || "{}");
         const key = `signup:${email}`;
 
-        if (await client.get(key)) {
-          console.warn("User already signed up", body);
+        const user = await client.get(key);
+        if (!!user) {
+          console.warn("User already signed up", user, body);
           return res.status(200).send({ message: "Already signed up" });
         }
 
@@ -23,8 +26,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           name,
           organization,
         });
-        await client.set(key, data);
+        const resp = await client.set(key, data);
 
+        console.log("Stored data", data, { resp });
         return res.status(200).send({ message: "Signup successful" });
       }
       default:
