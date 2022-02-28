@@ -40,15 +40,16 @@ const Demo: NextPage = () => {
       >
         <Stack
           px={{ base: '1rem', md: '12' }}
-          bgColor="#fff"
+          bgColor="rgba(255, 255, 255, 0.9)"
+          backdropFilter="blur(24px)"
           boxShadow="0px 58px 67px rgba(0, 0, 0, 0.09)"
           borderRadius="10px"
-          py={{ base: '8', md: '20' }}
-          spacing="16"
+          py={{ base: '6', md: '20' }}
+          spacing={{ base: '10', md: '16' }}
         >
           <Stack
             align="center"
-            px={{ base: '4', md: '18rem' }}
+            px={{ base: '4', md: '12rem' }}
             spacing={{ base: '2', md: '4' }}
           >
             <Heading
@@ -56,7 +57,7 @@ const Demo: NextPage = () => {
               fontSize={{ base: '2rem', md: '3rem' }}
               fontWeight="600"
               color="#0F0F0F"
-              lineHeight={{ base: '3rem', md: '4.25rem' }}
+              lineHeight="auto"
             >
               Sleek Demo
             </Heading>
@@ -65,6 +66,7 @@ const Demo: NextPage = () => {
               w={{ base: '100%', md: '624px' }}
               fontSize={{ base: '0.875rem', md: '1.125rem' }}
               opacity="0.87"
+              color="#2F3542"
             >
               Start by entering a wallet address the payable amount will go to,
               sleek works across web and mobile devices.
