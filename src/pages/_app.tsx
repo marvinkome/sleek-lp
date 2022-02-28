@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import React, { useEffect } from "react";
 import ReactGA from "react-ga";
 import theme from "theme";
@@ -28,6 +29,12 @@ function SleekApp({ Component, pageProps }: AppProps) {
 
   return (
     <ChakraProvider theme={theme}>
+      <Head>
+        <title>Sleek | Crypto payment processing for the internet</title>
+        <meta name="description" content="The new standard in crypto payment for everyone" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Component {...pageProps} />
     </ChakraProvider>
   );

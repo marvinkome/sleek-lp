@@ -1,9 +1,9 @@
 import { chakra, Image, Stack, Text, Link } from "@chakra-ui/react";
 import React from "react";
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<any> = ({ children, ContainerProps }) => {
   return (
-    <>
+    <chakra.main {...ContainerProps}>
       <chakra.nav display={{ base: "none", md: "block" }}>
         <Stack
           align="center"
@@ -103,7 +103,7 @@ const Layout: React.FC = ({ children }) => {
           </Stack>
         </Stack>
       </chakra.footer>
-    </>
+    </chakra.main>
   );
 };
 
