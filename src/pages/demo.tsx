@@ -105,13 +105,7 @@ const Demo: NextPage = () => {
             <Heading textAlign="center" fontSize={{ base: "2rem", md: "3rem" }} fontWeight="600" color="#0F0F0F" lineHeight="auto">
               Sleek Demo
             </Heading>
-            <Text
-              textAlign="center"
-              w={{ base: "100%", md: "624px" }}
-              fontSize={{ base: "0.875rem", md: "1.125rem" }}
-              opacity="0.87"
-              color="#2F3542"
-            >
+            <Text textAlign="center" w={{ base: "100%", md: "624px" }} fontSize={{ base: "sm", md: "md" }} opacity="0.87" color="#2F3542">
               Start by entering a wallet address the payable amount will go to, sleek works across web and mobile devices.
             </Text>
           </Stack>
@@ -155,21 +149,25 @@ const Demo: NextPage = () => {
               Pay {formState.amount ? `$${formState.amount}` : ""}
             </Button>
 
+            <Text textAlign="center" color="#FF6348" fontSize={{ base: "0.825rem", md: "1rem" }}>
+              This is a real transaction and your account will be charged, choose a small amount to transfer.
+            </Text>
+
             <Stack>
               {error && (
-                <Text textAlign="center" color="#FF6348" fontSize="sm">
+                <Text textAlign="center" fontWeight="600" color="#FF6348" fontSize="sm">
                   {error}
                 </Text>
               )}
 
               {payment && (
-                <Link href={payment?.receipt} isExternal textAlign="center" fontSize="sm">
+                <Link href={payment?.receipt} fontWeight="600" isExternal textAlign="center" fontSize="sm">
                   Payment Receipt: {payment?.receipt ? `${payment?.receipt}` : ""}
                 </Link>
               )}
 
               {payout && (
-                <Text textAlign="center" fontSize="sm">
+                <Text textAlign="center" fontWeight="600" fontSize="sm">
                   Payout Transaction: {payout?.transactionHash ? `${payout?.transactionHash}` : ""}
                 </Text>
               )}
