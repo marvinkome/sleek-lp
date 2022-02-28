@@ -517,7 +517,7 @@ const Home = () => {
                 boxShadow="rgba(164, 176, 190, 0.15) 0px 48px 100px 0px"
                 backdropFilter=" blur(24px)"
                 borderRadius="12"
-                px="12"
+                px={{ base: '8', md: '12' }}
                 py="12"
                 spacing="8"
                 minH="27rem"
