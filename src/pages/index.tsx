@@ -173,14 +173,19 @@ const Home = () => {
             </Icon>
           </Stack>
 
-          <Stack minWidth="0" spacing={{ base: "2", md: "2" }}>
+          <Stack flex="1" minWidth="0" spacing={{ base: "2", md: "2" }}>
             <Heading color="rgba(83, 107, 236, 0.36)" fontSize={{ base: "2rem", md: "3rem" }}>
               Designed for
             </Heading>
             <Heading color="#536BEC" fontSize={{ base: "2.25rem", md: "4rem" }}>
               Developers First
             </Heading>
-            <Text fontSize={{ base: "1rem", md: "1rem" }} color="rgb(0 0 0 / 0.87)" py="4">
+            <Text display={{ base: "none", md: "block" }} fontSize={{ base: "1rem", md: "1rem" }} color="rgb(0 0 0 / 0.87)" py="4">
+              With simple APIs that let you focus on building great products,
+              <br />
+              Setting up payment is as easy as this snippet!
+            </Text>
+            <Text display={{ base: "block", md: "none" }} fontSize={{ base: "1rem", md: "1rem" }} color="rgb(0 0 0 / 0.87)" py="4">
               With simple APIs that let you focus on building great products, Setting up payment is as easy as this snippet!
             </Text>
 
@@ -200,7 +205,7 @@ const Home = () => {
             </div>
           </Stack>
 
-          <Stack>
+          <Stack flex="1">
             <Image src="/snippet.svg" alt="Code" boxSize="100%" />
           </Stack>
         </Stack>
@@ -210,7 +215,7 @@ const Home = () => {
           direction={{ base: "column", md: "row-reverse" }}
           align="center"
           px={{ base: "0", md: "12rem" }}
-          spacing={{ base: "12", md: "12" }}
+          spacing={{ base: "12", md: "28" }}
           py={{ base: "1.2rem", md: "4rem" }}
         >
           <Stack display={{ base: "none", md: "block" }}>
@@ -228,9 +233,9 @@ const Home = () => {
             </Icon>
           </Stack>
 
-          <Stack minWidth="0" display={{ base: "none", md: "flex" }} flex="1.2" spacing="4">
-            <Heading fontSize={{ base: "2rem", md: "3rem" }} fontWeight="800" color="rgba(83, 82, 237, 0.48)">
-              The best <span style={{ color: "#5352ED" }}>~Pay With Crypto~</span> experience for your customers
+          <Stack minWidth="0" display={{ base: "none", md: "flex" }} flex="1" spacing="4">
+            <Heading fontSize={{ base: "2rem", md: "3.4rem" }} fontWeight="800" color="rgba(83, 107, 236, 0.36)">
+              The best <span style={{ color: "#536BEC" }}>~Pay With Crypto~</span> experience for your customers
             </Heading>
             <Text fontSize={{ base: "1rem", md: "1.125rem" }} opacity="0.87">
               With a beautiful form that supports one-click payments across different networks and devices.
@@ -239,7 +244,7 @@ const Home = () => {
 
           {/* Mobile display */}
           <Stack display={{ base: "flex", md: "none" }} flex="1" spacing="4">
-            <Heading fontSize="32px" fontWeight="800" color="rgba(83, 82, 237, 0.48)">
+            <Heading fontSize="32px" fontWeight="800" color="rgba(83, 107, 236, 0.36)">
               The best <span style={{ color: "#5352ED" }}>~Pay With Crypto~</span> experience for your customers
             </Heading>
             <Text w={{ base: "100%", md: "600px" }} fontSize={{ base: "1rem", md: "1.125rem" }} opacity="0.87">
@@ -253,7 +258,7 @@ const Home = () => {
         </Stack>
 
         <chakra.section py={{ base: "1.2rem", md: "6rem" }}>
-          <Stack direction={{ base: "column", md: "row" }} px={{ base: "0", md: "12rem" }} spacing={{ base: "8", md: "12" }}>
+          <Stack direction={{ base: "column", md: "row" }} px={{ base: "0", md: "10rem" }} spacing={{ base: "8", md: "12" }}>
             <Stack display={{ base: "none", md: "block" }} spacing="22rem" direction="row" pos="absolute" mt="-28rem" zIndex="-2">
               <Stack>
                 <Icon viewBox="0 0 1 377" w="1" h="30rem" position="absolute">
@@ -308,33 +313,6 @@ const Home = () => {
                   />
                 </Icon>
               </Stack>
-
-              <Stack>
-                <Icon viewBox="0 0 1 377" w="0.5" h="65rem" mt="-24rem" position="absolute">
-                  <line
-                    x1="0.4"
-                    y1="-1.74846e-08"
-                    x2="0.400016"
-                    y2="377"
-                    stroke="#2F3542"
-                    strokeOpacity="0.06"
-                    strokeWidth="0.8"
-                    strokeDasharray="6 6"
-                  />
-                </Icon>
-                <Icon viewBox="0 0 1 377" w="0.5" h="112rem" mt="-24rem" position="absolute">
-                  <line
-                    x1="0.4"
-                    y1="-1.74846e-08"
-                    x2="0.400016"
-                    y2="377"
-                    stroke="#2F3542"
-                    strokeOpacity="0.06"
-                    strokeWidth="0.8"
-                    strokeDasharray="6 6"
-                  />
-                </Icon>
-              </Stack>
             </Stack>
 
             <Stack flex="1" spacing="4" pt="12">
@@ -348,7 +326,8 @@ const Home = () => {
                 opacity="0.87"
                 py={{ base: "2", md: "4" }}
               >
-                Whether you&apos;re building a marketplace or accepting crypto payments, Sleek has the features you need.
+                Whether you&apos;re a merchant or building a marketplace to accept crypto payments globally, Sleek has the features you
+                need.
               </Text>
 
               <Stack direction="row" spacing="5" py={{ base: "2", md: "1rem" }}>
@@ -372,7 +351,7 @@ const Home = () => {
             </Stack>
 
             <Stack flex="1" userSelect="none" pointerEvents="none" maxW="100%" height="100%">
-              <Image src="/infra.svg" alt="Sleekpay Infrastructure" boxSize="100%" />
+              <Image src="/infra.png" alt="Sleekpay Infrastructure" boxSize="100%" />
             </Stack>
           </Stack>
         </chakra.section>
@@ -389,7 +368,7 @@ const Home = () => {
                 boxShadow="rgba(164, 176, 190, 0.15) 0px 48px 100px 0px"
                 backdropFilter=" blur(24px)"
                 borderRadius="12"
-                px="12"
+                px={{ base: "8", md: "12" }}
                 py="12"
                 spacing="8"
                 minH="27rem"
