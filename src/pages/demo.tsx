@@ -177,7 +177,8 @@ const Demo: NextPage = () => {
       </Container>
 
       {/* load sleekPay script */}
-      <Script src="https://cdn.jsdelivr.net/gh/marvinkome/sleek-checkout@main/dist/sleek.min.js" />
+      {/* TODO: using tagged version, use main once cache expires (in 7 days) */}
+      <Script src="https://cdn.jsdelivr.net/gh/marvinkome/sleek-checkout@0.1.1/dist/sleek.min.js" />
     </Layout>
   );
 };
