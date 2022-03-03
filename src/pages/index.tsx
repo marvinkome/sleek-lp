@@ -244,7 +244,7 @@ const Home = () => {
           </Stack>
 
           <Stack flex="1">
-            <Image src="/snippet.svg" alt="Code" boxSize="100%" />
+            <Image src="/snippet.png" alt="Code" boxSize="100%" />
           </Stack>
         </Stack>
 
