@@ -12,13 +12,13 @@ export default extendTheme({
         color: '#2F3542',
         fontWeight: 400,
         webkitFontSmoothing: 'antialiased'
-      },
-      button: {
-        fontFamily: 'Poppins, sans-serif',
-        _focus: {
-          boxShadow: 'none !important'
-        }
       }
+      // button: {
+      //   fontFamily: 'Poppins, sans-serif',
+      //   _focus: {
+      //     boxShadow: 'none !important'
+      //   }
+      // }
     }
   },
 
@@ -32,7 +32,7 @@ export default extendTheme({
     Link: {
       baseStyle: {
         // borderBottom: '1px solid',
-        fontFamily: 'Poppins, sans-serif',
+
         _hover: {
           textDecoration: 'none'
           // transform: 'scale(1.01)'
