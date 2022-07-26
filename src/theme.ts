@@ -32,7 +32,6 @@ export default extendTheme({
     Link: {
       baseStyle: {
         // borderBottom: '1px solid',
-        fontFamily: "Poppins, sans-serif",
         _hover: {
           textDecoration: "none",
           // transform: 'scale(1.01)'

@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import React, { useEffect } from "react";
 import ReactGA from "react-ga";
-import theme from "theme";
+import theme from "../theme/";
+import "../theme/clash-display.css";
 
 const LayoutDefault = ({ children }: any) => <>{children}</>;
 
@@ -34,8 +35,8 @@ function SleekApp({ Component, pageProps }: any) {
   return (
     <ChakraProvider theme={theme}>
       <Head>
-        <title>Sleek | Crypto payment processing for the internet</title>
-        <meta name="description" content="The new standard in crypto payment for everyone" />
+        <title>Sleek | Crypto payment invoicing for Freelancers, Contractors, and SMEs.</title>
+        <meta name="description" content="Sleek is helping professionals get paid with less friction" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
