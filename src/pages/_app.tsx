@@ -6,7 +6,9 @@ import React, { useEffect } from "react";
 import ReactGA from "react-ga";
 import theme from "theme";
 
-function SleekApp({ Component, pageProps }: AppProps) {
+const LayoutDefault = ({ children }: any) => <>{children}</>;
+
+function SleekApp({ Component, pageProps }: any) {
   const router = useRouter();
   useEffect(() => {
     if (process.env.NODE_ENV === "production") {
@@ -27,6 +29,8 @@ function SleekApp({ Component, pageProps }: AppProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const Layout = Component.Layout || LayoutDefault;
+
   return (
     <ChakraProvider theme={theme}>
       <Head>
@@ -35,7 +39,9 @@ function SleekApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ChakraProvider>
   );
 }
