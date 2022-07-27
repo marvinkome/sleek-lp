@@ -29,18 +29,18 @@ export default extendTheme({
       },
     },
 
-    Link: {
-      baseStyle: {
-        // borderBottom: '1px solid',
-        _hover: {
-          textDecoration: "none",
-          // transform: 'scale(1.01)'
-        },
-        _focus: {
-          boxShadow: "none",
-        },
-      },
-    },
+    // Link: {
+    //   baseStyle: {
+    //     // borderBottom: '1px solid',
+    //     _hover: {
+    //       // textDecoration: "none",
+    //       // transform: 'scale(1.01)'
+    //     },
+    //     _focus: {
+    //       boxShadow: "none",
+    //     },
+    //   },
+    // },
 
     // Button: {
     //   baseStyle: {
