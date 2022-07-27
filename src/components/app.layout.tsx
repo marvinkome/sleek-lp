@@ -2,6 +2,7 @@ import React from "react";
 import NextLink from "next/link";
 import { Button, chakra, Container, Heading, Stack, Text } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
+import CreateInvoice from "components/invoice/create";
 
 const AppLayout = ({ children }: any) => {
   return (
@@ -45,19 +46,20 @@ const AppLayout = ({ children }: any) => {
                 </Button>
               </NextLink>
             </Stack>
-
-            <Button
-              isFullWidth
-              leftIcon={<FiPlus />}
-              size="lg"
-              fontSize="md"
-              rounded="full"
-              bgColor="black"
-              color="#fff"
-              _hover={{ bgColor: "blackAlpha.800" }}
-            >
-              New Invoice
-            </Button>
+            <CreateInvoice>
+              <Button
+                isFullWidth
+                leftIcon={<FiPlus />}
+                size="lg"
+                fontSize="md"
+                rounded="full"
+                bgColor="black"
+                color="#fff"
+                _hover={{ bgColor: "blackAlpha.800" }}
+              >
+                New Invoice
+              </Button>
+            </CreateInvoice>
           </chakra.aside>
 
           <chakra.main flex="4">{children}</chakra.main>

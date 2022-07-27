@@ -31,9 +31,9 @@ const InvoiceModal = ({ children }: InvoiceModalProps) => {
         onClick: () => onOpen(),
       })}
 
-      <Modal isOpen={isOpen} onClose={onClose} size="full">
+      <Modal isOpen={isOpen} onClose={onClose} size="full" scrollBehavior="inside">
         <ModalOverlay />
-        <ModalContent my={14} rounded="20px" maxW="container.lg">
+        <ModalContent my={8} rounded="20px" maxW="container.lg">
           <ModalHeader px={4} py={2}>
             <Stack direction="row" alignItems="center" justifyContent="space-between">
               <IconButton
@@ -45,7 +45,7 @@ const InvoiceModal = ({ children }: InvoiceModalProps) => {
                 onClick={() => onClose()}
               />
 
-              <Stack direction="row" alignItems="center" spacing={2} bgColor="gray.100" px={4} py={2} rounded="24px">
+              <Stack direction="row" alignItems="center" spacing={2} bgColor="gray.100" px={2} py={1} rounded="24px">
                 <chakra.div boxSize="8px" rounded="full" bgColor={statusColor.pending} />
                 <Text fontSize="sm" fontWeight="500">
                   Pending
@@ -55,14 +55,16 @@ const InvoiceModal = ({ children }: InvoiceModalProps) => {
           </ModalHeader>
 
           <ModalBody p={0}>
-            <Stack direction="row" bgColor="#000" color="white" px={20} py={8}>
+            <Stack direction="row" bgColor="#000" px={20} py={8}>
               <chakra.div flexGrow={0} flexBasis="25%" mr="auto !important">
-                <Heading fontWeight="500" fontSize="3xl" mb={6}>
+                <Heading color="white" fontWeight="500" fontSize="3xl" mb={6}>
                   Design studio by Roosevelt.
                 </Heading>
 
                 <chakra.div fontSize="2xl" fontWeight="500">
-                  <Text lineHeight="1.2">Invoice</Text>
+                  <Text lineHeight="1.2" color="white">
+                    Invoice
+                  </Text>
                   <Text fontSize="3xl" color="rgb(255 255 255 / 58%)">
                     102
                   </Text>
@@ -71,12 +73,12 @@ const InvoiceModal = ({ children }: InvoiceModalProps) => {
 
               <Stack flexGrow={0} flexBasis="25%" spacing={4}>
                 <chakra.div fontWeight="500">
-                  <Text>Issued</Text>
+                  <Text color="white">Issued</Text>
                   <Text color="rgb(255 255 255 / 58%)">01 Jul, 2022</Text>
                 </chakra.div>
 
                 <chakra.div fontWeight="500">
-                  <Text>From</Text>
+                  <Text color="white">From</Text>
 
                   <Text color="rgb(255 255 255 / 58%)">
                     Roosevelt Innocent <br />
@@ -88,12 +90,12 @@ const InvoiceModal = ({ children }: InvoiceModalProps) => {
 
               <Stack flexGrow={0} flexBasis="25%" spacing={4}>
                 <chakra.div fontWeight="500">
-                  <Text>Due</Text>
+                  <Text color="white">Due</Text>
                   <Text color="rgb(255 255 255 / 58%)">30 Jul, 2022</Text>
                 </chakra.div>
 
                 <chakra.div fontWeight="500">
-                  <Text>To</Text>
+                  <Text color="white">To</Text>
 
                   <Text color="rgb(255 255 255 / 58%)">
                     Binural App <br />
@@ -164,6 +166,7 @@ const InvoiceModal = ({ children }: InvoiceModalProps) => {
                     leftIcon={<Icon as={FiLink2} />}
                     bgColor="green.50"
                     fontWeight="500"
+                    fontSize="sm"
                     border="1px solid transparent"
                     _hover={{ borderColor: "green.600" }}
                   >

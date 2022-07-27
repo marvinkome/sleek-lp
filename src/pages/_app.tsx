@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import React, { useEffect } from "react";
 import ReactGA from "react-ga";
-import theme from "../theme/";
-import "../theme/clash-display.css";
+import theme from "theme";
+import "clash-display.css";
 
 const LayoutDefault = ({ children }: any) => <>{children}</>;
 

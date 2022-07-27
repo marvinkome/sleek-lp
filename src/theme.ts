@@ -2,8 +2,10 @@ import { extendTheme } from "@chakra-ui/react";
 
 export default extendTheme({
   fonts: {
-    body: "'Clash Display', sans-serif",
-    heading: "'Clash Display', sans-serif",
+    body: `Clash Display, -apple-system, BlinkMacSystemFont`,
+    heading: `Clash Display, -apple-system, BlinkMacSystemFont`,
+    fontDisplay: "optional",
+    webkitFontSmoothing: "antialiased",
   },
 
   styles: {
@@ -26,6 +28,136 @@ export default extendTheme({
     Text: {
       baseStyle: {
         color: "#2F3542",
+      },
+    },
+
+    FormLabel: {
+      variants: {
+        outlined: {
+          fontSize: "sm",
+          position: "absolute",
+          top: -2.5,
+          left: 4,
+          zIndex: 2,
+          px: 1,
+          bgColor: "white",
+          color: "rgb(0 0 0 / 72%)",
+        },
+      },
+
+      defaultProps: {
+        variant: "outlined",
+      },
+    },
+
+    Input: {
+      sizes: {
+        lg: {
+          field: {
+            fontWeight: 700,
+            fontSize: "2xl",
+            py: 6,
+          },
+        },
+      },
+
+      variants: {
+        outline: {
+          field: {
+            pt: 1,
+            rounded: "lg",
+            border: "1px solid",
+            borderColor: "rgb(0 0 0 / 60%)",
+
+            _hover: {
+              borderColor: "rgb(0 0 0 / 80%)",
+            },
+
+            _focus: {
+              borderColor: "rgb(0 0 0 / 80%)",
+              outline: "none",
+              boxShadow: "none",
+            },
+          },
+        },
+      },
+    },
+
+    Select: {
+      variants: {
+        outline: {
+          field: {
+            pt: 1,
+            rounded: "lg",
+            border: "1px solid",
+            borderColor: "rgb(0 0 0 / 60%)",
+
+            _hover: {
+              borderColor: "rgb(0 0 0 / 80%)",
+            },
+
+            _focus: {
+              borderColor: "rgb(0 0 0 / 80%)",
+              outline: "none",
+              boxShadow: "none",
+            },
+          },
+        },
+      },
+    },
+
+    Textarea: {
+      variants: {
+        outline: {
+          pt: 2,
+          rounded: "lg",
+          border: "1px solid",
+          borderColor: "rgb(0 0 0 / 60%)",
+
+          _hover: {
+            borderColor: "rgb(0 0 0 / 80%)",
+          },
+
+          _focus: {
+            borderColor: "rgb(0 0 0 / 80%)",
+            outline: "none",
+            boxShadow: "none",
+          },
+        },
+      },
+    },
+
+    SelectMenu: {
+      baseStyle: {
+        w: "100%",
+        cursor: "pointer",
+      },
+
+      sizes: {
+        md: {
+          fontWeight: 600,
+          fontSize: "md",
+        },
+
+        lg: {
+          fontWeight: 700,
+          fontSize: "2xl",
+        },
+      },
+
+      variants: {
+        outline: {
+          rounded: "0px",
+          border: "1px solid",
+          borderColor: "rgb(0 0 0 / 12%)",
+          color: "black",
+          py: 2,
+          px: 4,
+
+          _hover: {
+            borderColor: "rgb(0 0 0 / 60%)",
+          },
+        },
       },
     },
 
@@ -136,242 +268,113 @@ export default extendTheme({
     //   }
     // },
 
-    Modal: {
-      baseStyle: {
-        dialog: {
-          mx: 5,
-        },
-        header: {
-          borderBottom: "1px solid rgb(0 0 0 / 24%)",
-        },
-      },
-    },
+    // Tabs: {
+    //   variants: {
+    //     line: {
+    //       tablist: {
+    //         borderBottom: "1px solid",
+    //         borderColor: "rgba(0, 0, 0, 0.24)",
+    //       },
 
-    Input: {
-      sizes: {
-        lg: {
-          field: {
-            fontWeight: 700,
-            fontSize: "2xl",
-            py: 6,
-          },
-        },
-      },
+    //       tab: {
+    //         color: "rgb(0 0 0 / 48%)",
+    //         borderBottom: "1px solid",
+    //         borderColor: "transparent",
 
-      variants: {
-        outline: {
-          field: {
-            rounded: "0px",
-            border: "1px solid",
-            borderColor: "rgb(0 0 0 / 26%)",
-            color: "black",
+    //         _selected: {
+    //           color: "rgb(0 0 0 / 72%)",
+    //           fontWeight: "600",
+    //         },
+    //         _active: {
+    //           bg: "transparent",
+    //         },
+    //         _focus: {
+    //           boxShadow: "none",
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
 
-            _hover: {
-              borderColor: "rgb(0 0 0 / 60%)",
-            },
+    // Textarea: {
+    //   variants: {
+    //     outline: {
+    //       rounded: "0px",
+    //       border: "1px solid",
+    //       borderColor: "rgb(0 0 0 / 26%)",
+    //       color: "black",
 
-            _placeholder: {
-              color: "rgb(0 0 0 / 36%)",
-            },
+    //       _hover: {
+    //         borderColor: "rgb(0 0 0 / 60%)",
+    //       },
 
-            _focus: {
-              borderColor: "rgb(0 0 0 / 60%)",
-              outline: "none",
-              boxShadow: "none",
-            },
-          },
-        },
+    //       _placeholder: {
+    //         color: "rgb(0 0 0 / 36%)",
+    //       },
 
-        flushed: {
-          field: {
-            borderBottom: "1px solid rgb(47 53 66 / 24%)",
+    //       _focus: {
+    //         borderColor: "rgb(0 0 0 / 60%)",
+    //         outline: "none",
+    //         boxShadow: "none",
+    //       },
+    //     },
+    //   },
+    // },
 
-            _hover: {
-              borderColor: "rgb(47 53 66 / 60%)",
-            },
+    // Checkbox: {
+    //   baseStyle: {
+    //     control: {
+    //       _checked: {
+    //         bg: "#212121",
+    //         borderColor: "#212121",
 
-            _placeholder: {
-              color: "rgb(47 53 66 / 48%)",
-            },
+    //         _hover: {
+    //           bg: "#212121",
+    //           borderColor: "#212121",
+    //         },
+    //       },
+    //     },
+    //     label: {
+    //       fontWeight: "500",
+    //       ml: 4,
+    //     },
+    //   },
 
-            _focus: {
-              borderColor: "rgb(47 53 66 / 60%)",
-              outline: "none",
-              boxShadow: "none",
-            },
-          },
-        },
-      },
-    },
+    //   md: {
+    //     label: { fontSize: "sm" },
+    //   },
 
-    SelectMenu: {
-      baseStyle: {
-        w: "100%",
-        cursor: "pointer",
-      },
+    //   lg: {
+    //     label: { fontSize: "md" },
+    //   },
+    // },
 
-      sizes: {
-        md: {
-          fontWeight: 600,
-          fontSize: "md",
-        },
+    // Radio: {
+    //   baseStyle: {
+    //     control: {
+    //       _checked: {
+    //         bg: "#000000",
+    //         borderColor: "#000000",
 
-        lg: {
-          fontWeight: 700,
-          fontSize: "2xl",
-        },
-      },
+    //         _hover: {
+    //           bg: "#000000",
+    //           borderColor: "#000000",
+    //         },
+    //       },
+    //     },
+    //     label: {
+    //       fontWeight: "500",
+    //       ml: 4,
+    //     },
+    //   },
 
-      variants: {
-        outline: {
-          rounded: "0px",
-          border: "1px solid",
-          borderColor: "rgb(0 0 0 / 12%)",
-          color: "black",
-          py: 2,
-          px: 4,
+    //   md: {
+    //     label: { fontSize: "sm" },
+    //   },
 
-          _hover: {
-            borderColor: "rgb(0 0 0 / 60%)",
-          },
-        },
-
-        flushed: {
-          borderBottom: "1px solid rgb(0 0 0 / 24%)",
-          pt: 3,
-          pb: 2,
-
-          _hover: {
-            borderColor: "rgb(0 0 0 / 60%)",
-          },
-        },
-      },
-    },
-
-    FormLabel: {
-      variants: {
-        outlined: {
-          textTransform: "uppercase",
-          fontSize: "xs",
-          fontWeight: "600",
-          color: "rgb(0 0 0 / 72%)",
-        },
-
-        flushed: {},
-      },
-
-      defaultProps: {
-        variant: "outlined",
-      },
-    },
-
-    Tabs: {
-      variants: {
-        line: {
-          tablist: {
-            borderBottom: "1px solid",
-            borderColor: "rgba(0, 0, 0, 0.24)",
-          },
-
-          tab: {
-            color: "rgb(0 0 0 / 48%)",
-            borderBottom: "1px solid",
-            borderColor: "transparent",
-
-            _selected: {
-              color: "rgb(0 0 0 / 72%)",
-              fontWeight: "600",
-            },
-            _active: {
-              bg: "transparent",
-            },
-            _focus: {
-              boxShadow: "none",
-            },
-          },
-        },
-      },
-    },
-
-    Textarea: {
-      variants: {
-        outline: {
-          rounded: "0px",
-          border: "1px solid",
-          borderColor: "rgb(0 0 0 / 26%)",
-          color: "black",
-
-          _hover: {
-            borderColor: "rgb(0 0 0 / 60%)",
-          },
-
-          _placeholder: {
-            color: "rgb(0 0 0 / 36%)",
-          },
-
-          _focus: {
-            borderColor: "rgb(0 0 0 / 60%)",
-            outline: "none",
-            boxShadow: "none",
-          },
-        },
-      },
-    },
-
-    Checkbox: {
-      baseStyle: {
-        control: {
-          _checked: {
-            bg: "#212121",
-            borderColor: "#212121",
-
-            _hover: {
-              bg: "#212121",
-              borderColor: "#212121",
-            },
-          },
-        },
-        label: {
-          fontWeight: "500",
-          ml: 4,
-        },
-      },
-
-      md: {
-        label: { fontSize: "sm" },
-      },
-
-      lg: {
-        label: { fontSize: "md" },
-      },
-    },
-
-    Radio: {
-      baseStyle: {
-        control: {
-          _checked: {
-            bg: "#000000",
-            borderColor: "#000000",
-
-            _hover: {
-              bg: "#000000",
-              borderColor: "#000000",
-            },
-          },
-        },
-        label: {
-          fontWeight: "500",
-          ml: 4,
-        },
-      },
-
-      md: {
-        label: { fontSize: "sm" },
-      },
-
-      lg: {
-        label: { fontSize: "md" },
-      },
-    },
+    //   lg: {
+    //     label: { fontSize: "md" },
+    //   },
+    // },
   },
 });
