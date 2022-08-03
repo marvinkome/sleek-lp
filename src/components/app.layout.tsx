@@ -25,7 +25,7 @@ const AppLayout = ({ children }: any) => {
       </chakra.header>
 
       <Container maxW="container.lg">
-        <Stack direction="row" mt={20} spacing={10} alignItems="flex-start">
+        <Stack direction="row" mt={20} spacing={6} alignItems="flex-start">
           <chakra.aside py={6} px={4} flex="1" rounded="2rem" bgColor="#fff" border="1px solid" borderColor="rgb(0 0 0 / 4%)">
             <Stack mb={8} spacing={4} alignItems="flex-start">
               <NextLink href="/" passHref>
