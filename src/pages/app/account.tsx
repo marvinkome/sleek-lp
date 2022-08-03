@@ -67,7 +67,10 @@ const Page = () => {
           </Stack>
           <Stack ml="auto! important">
             <Text alignSelf="center" fontWeight={500} fontSize="xl">Starter</Text>
-            <Button size="sm" bgColor="black" color="white">Upgrade</Button>
+            <Button size="sm" bgColor="black"
+                color="#fff"
+                _hover={{ bgColor: "blackAlpha.800" }}
+                _active={{ bgColor: "blackAlpha.700" }}>Upgrade</Button>
           </Stack>
         </Stack>
         <Stack spacing={2}>
