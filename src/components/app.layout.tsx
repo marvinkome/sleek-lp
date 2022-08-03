@@ -17,9 +17,21 @@ const AppLayout = ({ children }: any) => {
               </Text>
             </Stack>
 
-            <Text rounded="2xl" px={4} py={1} bgColor="rgb(0 0 0 / 4%)">
-              Roosevelt
-            </Text>
+            <NextLink href="/app/account" passHref>
+              <Button
+                as="a"
+                rounded="2xl"
+                px={4}
+                py={1}
+                bgColor="rgb(0 0 0 / 4%)"
+                fontWeight="500"
+                _hover={{ bgColor: "rgb(0 0 0 / 8%)" }}
+                _active={{ bgColor: "rgb(0 0 0 / 8%)" }}
+                onClick={() => null}
+              >
+                Roosevelt
+              </Button>
+            </NextLink>
           </Stack>
         </Container>
       </chakra.header>
@@ -28,20 +40,20 @@ const AppLayout = ({ children }: any) => {
         <Stack direction="row" mt={20} spacing={6} alignItems="flex-start">
           <chakra.aside py={6} px={4} flex="1" rounded="2rem" bgColor="#fff" border="1px solid" borderColor="rgb(0 0 0 / 4%)">
             <Stack mb={8} spacing={4} alignItems="flex-start">
-              <NextLink href="/" passHref>
-                <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full">
+              <NextLink href="/app" passHref>
+                <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full" _hover={{ bgColor: "rgb(0 0 0 / 8%)" }}>
                   Dashboard
                 </Button>
               </NextLink>
 
-              <NextLink href="/" passHref>
-                <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full">
+              <NextLink href="/app" passHref>
+                <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full" _hover={{ bgColor: "rgb(0 0 0 / 8%)" }}>
                   Received
                 </Button>
               </NextLink>
 
-              <NextLink href="/" passHref>
-                <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full">
+              <NextLink href="/app" passHref>
+                <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full" _hover={{ bgColor: "rgb(0 0 0 / 8%)" }}>
                   Pending
                 </Button>
               </NextLink>
@@ -56,6 +68,7 @@ const AppLayout = ({ children }: any) => {
                 bgColor="black"
                 color="#fff"
                 _hover={{ bgColor: "blackAlpha.800" }}
+                _active={{ bgColor: "blackAlpha.700" }}
               >
                 New Invoice
               </Button>
