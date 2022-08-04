@@ -1,4 +1,5 @@
 import React from "react";
+import NextLink from "next/link";
 import AppLayout from "components/app.layout";
 import {
   Container,
@@ -132,11 +133,24 @@ const InvoiceCard = (props: InvoiceCardProps) => {
     </Stack>
   );
 };
+
 const Page = () => {
   return (
     <Container maxW="container.xl" py={6}>
       <Stack mb={6} direction="row" alignItems="center" spacing={4}>
-        <IconButton aria-label="back to dashboard" size="sm" icon={<Icon boxSize="20px" as={FiChevronLeft} />} rounded="18px" p={2} />
+        <NextLink href="/app" passHref>
+          <IconButton
+            p={2}
+            as="a"
+            size="sm"
+            rounded="18px"
+            bgColor="rgb(0 0 0 / 8%)"
+            aria-label="back to dashboard"
+            _hover={{ bgColor: "rgb(0 0 0 / 12%)" }}
+            icon={<Icon boxSize="20px" as={FiChevronLeft} />}
+          />
+        </NextLink>
+
         <Heading fontSize="2xl" fontWeight="500">
           Binural App
         </Heading>

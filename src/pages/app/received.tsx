@@ -1,6 +1,5 @@
 import React from "react";
 import AppLayout from "components/app.layout";
-import NextLink from "next/link";
 import {
   chakra,
   Container,
@@ -23,7 +22,6 @@ type InvoiceCardProps = {
   count: number;
 };
 const InvoiceCard = (props: InvoiceCardProps) => {
-  const statusColor = { pending: "#F4B731", received: "#2ED573" };
   return (
     <Stack
       bgColor="#fff"
@@ -36,26 +34,22 @@ const InvoiceCard = (props: InvoiceCardProps) => {
       overflow="hidden"
       minW="0"
     >
-      <NextLink href="/app/softcom-inc" passHref>
-        <Heading
-          as="a"
-          fontSize="lg"
-          fontWeight="500"
-          borderBottom="1px solid rgb(0 0 0 / 70%)"
-          whiteSpace="nowrap"
-          textOverflow="ellipsis"
-          w="auto"
-          maxW="calc(100%)"
-          overflow="hidden"
-        >
-          {props.name}
-        </Heading>
-      </NextLink>
+      <Heading
+        fontSize="lg"
+        fontWeight="500"
+        whiteSpace="nowrap"
+        textOverflow="ellipsis"
+        maxW="calc(100%)"
+        overflow="hidden"
+        borderBottom="1px solid"
+        cursor="pointer"
+      >
+        {props.name}
+      </Heading>
 
       <Stack direction="row" alignItems="center" spacing={2} w="full">
-        <chakra.div boxSize="8px" rounded="full" bgColor={statusColor[props.status]} />
-        <Text fontSize="sm" fontWeight="500" textTransform="capitalize">
-          {props.count} {props.status}
+        <Text fontSize="sm" fontWeight="500" textTransform="capitalize" overflow="hidden" whiteSpace="nowrap" textOverflow="ellipsis">
+          Softcom Inc .
         </Text>
 
         <Menu>
@@ -102,19 +96,18 @@ const InvoiceCard = (props: InvoiceCardProps) => {
 const Page = () => {
   return (
     <Container maxW="container.xl" py={6}>
-      <Stack mb={6}>
+      <Stack mb={6} direction="row" alignItems="center">
+        <chakra.div boxSize="10px" rounded="full" bgColor="#2ED573" />
+
         <Heading fontSize="2xl" fontWeight="500">
-          All Invoices
+          Received
         </Heading>
       </Stack>
 
       <SimpleGrid columns={4} spacing={4}>
-        <InvoiceCard name="Softcom Inc." status="pending" count={1} />
-        <InvoiceCard name="Binural App" status="pending" count={2} />
-        <InvoiceCard name="YGC Agency." status="received" count={3} />
-        <InvoiceCard name="YOLO Brandrrrrr" status="received" count={2} />
-        <InvoiceCard name="YOLO Brandrrrrr" status="received" count={2} />
-        <InvoiceCard name="YOLO Brandrrrrr" status="received" count={2} />
+        <InvoiceCard name="#102" status="pending" count={1} />
+        <InvoiceCard name="#102" status="pending" count={2} />
+        <InvoiceCard name="#102" status="received" count={3} />
       </SimpleGrid>
     </Container>
   );

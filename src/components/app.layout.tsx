@@ -46,13 +46,13 @@ const AppLayout = ({ children }: any) => {
                 </Button>
               </NextLink>
 
-              <NextLink href="/app" passHref>
+              <NextLink href="/app/received" passHref>
                 <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full" _hover={{ bgColor: "rgb(0 0 0 / 8%)" }}>
                   Received
                 </Button>
               </NextLink>
 
-              <NextLink href="/app" passHref>
+              <NextLink href="/app/pending" passHref>
                 <Button as="a" variant="ghost" fontWeight="500" fontSize="md" rounded="full" _hover={{ bgColor: "rgb(0 0 0 / 8%)" }}>
                   Pending
                 </Button>
