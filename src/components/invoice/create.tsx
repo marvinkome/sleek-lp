@@ -1,7 +1,7 @@
 import React from "react";
+import DatePicker from "components/datepicker";
 import {
   Button,
-  chakra,
   Container,
   Divider,
   FormControl,
@@ -12,7 +12,6 @@ import {
   Input,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalHeader,
   ModalOverlay,
@@ -31,6 +30,17 @@ type CreateInvoiceProps = {
 export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
+  const [client, setClient] = React.useState<string>();
+  const [clientDetails, setClientDetails] = React.useState({
+    name: "",
+    address: "",
+  });
+  const [formData, setFormData] = React.useState<any>({
+    issueDate: null,
+    dueDate: null,
+    payoutAddress: "",
+  });
+
   return (
     <>
       {React.cloneElement(children, {
@@ -43,15 +53,17 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
           <ModalHeader px={4} py={2}>
             <Stack direction="row" alignItems="center" justifyContent="center">
               <IconButton
-                position="absolute"
-                aria-label="close-invoice"
-                size="sm"
-                icon={<Icon boxSize="24px" as={IoMdCloseCircle} />}
                 p={0}
-                rounded="full"
-                left="4"
                 top="2"
+                left="4"
+                size="sm"
+                rounded="full"
+                position="absolute"
                 onClick={() => onClose()}
+                bgColor="rgb(0 0 0 / 8%)"
+                aria-label="close-invoice"
+                _hover={{ bgColor: "rgb(0 0 0 / 12%)" }}
+                icon={<Icon boxSize="24px" as={IoMdCloseCircle} />}
               />
 
               <Text color="rgb(0 0 0 / 75%)">New Invoice</Text>
@@ -69,10 +81,8 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                       Invoice to
                     </FormLabel>
 
-                    <Select fontSize="sm" placeholder="Select option">
-                      <option value="option1">Option 1</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
+                    <Select fontSize="sm" placeholder="Select client" value={client} onChange={(e) => setClient(e.target.value)}>
+                      <option value="create">Create new client</option>
                     </Select>
 
                     <FormHelperText px={2} fontSize="xs" fontWeight="400" color="gray.700">
@@ -81,51 +91,61 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                   </FormControl>
                 </Stack>
 
+                {client === "create" && (
+                  <Stack direction="row" spacing={8} justifyContent="space-between">
+                    <FormControl>
+                      <FormLabel htmlFor="name" fontSize="sm" fontWeight="400">
+                        Client name
+                      </FormLabel>
+
+                      <Input
+                        id="name"
+                        fontSize="sm"
+                        placeholder="Softcom Inc."
+                        value={clientDetails.name}
+                        onChange={(e) => {
+                          setClientDetails({ ...clientDetails, name: e.target.value });
+                        }}
+                      />
+                    </FormControl>
+
+                    <FormControl>
+                      <FormLabel htmlFor="address" fontSize="sm" fontWeight="400">
+                        Client address
+                      </FormLabel>
+
+                      <Input
+                        id="address"
+                        fontSize="sm"
+                        placeholder="3a Samson Street, California"
+                        value={clientDetails.address}
+                        onChange={(e) => {
+                          setClientDetails({ ...clientDetails, address: e.target.value });
+                        }}
+                      />
+                    </FormControl>
+                  </Stack>
+                )}
+
                 <Stack direction="row" spacing={8} justifyContent="space-between">
                   <FormControl>
-                    <FormLabel fontSize="sm" fontWeight="400">
-                      Client address
-                    </FormLabel>
-
-                    <Input fontSize="sm" placeholder="3a Samson Street, California" />
-                  </FormControl>
-
-                  <FormControl>
-                    <FormLabel fontSize="sm" fontWeight="400">
-                      Client country
-                    </FormLabel>
-
-                    <Select fontSize="sm" placeholder="Select option">
-                      <option value="option1">Option 1</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
-                    </Select>
-                  </FormControl>
-                </Stack>
-
-                <Stack direction="row" spacing={8} justifyContent="space-between">
-                  <FormControl>
-                    <FormLabel fontSize="sm" fontWeight="400">
+                    <FormLabel htmlFor="issue-date" fontSize="sm" fontWeight="400">
                       Issue date
                     </FormLabel>
 
-                    <Select fontSize="sm" placeholder="Select option">
-                      <option value="option1">Option 1</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
-                    </Select>
+                    <DatePicker value={formData.issueDate} onChange={(date) => setFormData({ ...formData, issueDate: date })}>
+                      <Input id="issue-date" fontSize="sm" placeholder="Select issue date" />
+                    </DatePicker>
                   </FormControl>
 
                   <FormControl>
-                    <FormLabel fontSize="sm" fontWeight="400">
+                    <FormLabel htmlFor="due-date" fontSize="sm" fontWeight="400">
                       Due date
                     </FormLabel>
 
-                    <Select fontSize="sm" placeholder="Select option">
-                      <option value="option1">Option 1</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
-                    </Select>
+                    <DatePicker value={formData.dueDate} onChange={(date) => setFormData({ ...formData, dueDate: date })}>
+                      <Input id="due-date" fontSize="sm" placeholder="Select due date" />
+                    </DatePicker>
                   </FormControl>
                 </Stack>
               </Stack>

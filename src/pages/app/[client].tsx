@@ -146,7 +146,7 @@ const Page = () => {
             rounded="18px"
             bgColor="rgb(0 0 0 / 8%)"
             aria-label="back to dashboard"
-            _hover={{ bgColor: "rgb(0 0 0 / 16%)" }}
+            _hover={{ bgColor: "rgb(0 0 0 / 12%)" }}
             icon={<Icon boxSize="20px" as={FiChevronLeft} />}
           />
         </NextLink>
