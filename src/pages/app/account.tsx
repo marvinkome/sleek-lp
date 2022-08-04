@@ -74,29 +74,29 @@ const Page = () => {
           </Stack>
         </Stack>
         <Stack spacing={2}>
-          <Text fontWeight={400} textTransform="uppercase">Brand Name</Text>
-          <Heading fontSize="xl">Design Studio by Roosevelt</Heading>
+          <Heading fontWeight={400} fontSize="md" textTransform="uppercase">Brand Name</Heading>
+          <Text fontWeight={600} fontSize="xl">Design Studio by Roosevelt</Text>
         </Stack>
         <Stack spacing={2}>
-          <Text fontWeight={400} textTransform="uppercase">Business Address</Text>
-          <Heading fontSize="xl">20 Central Park, California</Heading>
+          <Heading fontWeight={400} fontSize="md" textTransform="uppercase">Business Address</Heading>
+          <Text fontWeight={600} fontSize="xl">20 Central Park, California</Text>
         </Stack>
         <Stack spacing={2}>
-          <Text fontWeight={400} textTransform="uppercase">Country</Text>
-          <Heading fontSize="xl">USA</Heading>
+          <Heading fontWeight={400} fontSize="md" textTransform="uppercase">Country</Heading>
+          <Text fontWeight={600} fontSize="xl">USA</Text>
         </Stack>
         <Divider  />
         <Stack spacing={2}>
-          <Text fontWeight={400} textTransform="uppercase">Home Address</Text>
-          <Heading fontSize="xl">D180 Samson Street, California</Heading>
+          <Heading fontWeight={400} fontSize="md" textTransform="uppercase">Home Address</Heading>
+          <Text fontWeight={600} fontSize="xl">D180 Samson Street, California</Text>
         </Stack>
         <Stack spacing={2}>
-          <Text fontWeight={400} textTransform="uppercase">Email Address</Text>
-          <Heading fontSize="xl">roosevelt@designbrand.com</Heading>
+          <Heading fontWeight={400} fontSize="md" textTransform="uppercase">Email Address</Heading>
+          <Text fontWeight={600} fontSize="xl">roosevelt@designbrand.com</Text>
         </Stack>
         <Stack spacing={2}>
-          <Text fontWeight={400} textTransform="uppercase">Phone number</Text>
-          <Heading fontSize="xl">+1 123 234 567</Heading>
+          <Heading fontWeight={400} fontSize="md" textTransform="uppercase">Phone number</Heading>
+          <Text fontWeight={600} fontSize="xl">+1 123 234 567</Text>
         </Stack>
         <Button bgColor="red.100" color="red" borderRadius="lg" fontWeight={500} fontSize="md" maxWidth="22%">Close account</Button>
       </Stack>
