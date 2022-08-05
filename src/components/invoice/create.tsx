@@ -5,6 +5,7 @@ import {
   Container,
   Divider,
   FormControl,
+  FormErrorMessage,
   FormHelperText,
   FormLabel,
   Icon,
@@ -17,12 +18,18 @@ import {
   ModalOverlay,
   Select,
   Stack,
+  StackDivider,
   Text,
   Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
+import { TbFileInvoice } from "react-icons/tb";
 import { IoMdCloseCircle } from "react-icons/io";
+
+const isPresent = (value: any) => {
+  return value !== null && value !== undefined && typeof value === "string" && value.trim().length > 0;
+};
 
 type CreateInvoiceProps = {
   children: React.ReactElement;
@@ -35,11 +42,42 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
     name: "",
     address: "",
   });
+
   const [formData, setFormData] = React.useState<any>({
     issueDate: null,
     dueDate: null,
     payoutAddress: "",
+    services: [
+      {
+        title: "",
+        cost: 0,
+        description: "",
+      },
+    ],
   });
+
+  const [dateErrors, setDateErrors] = React.useState<any[]>([]);
+  const dateValidator: any = {
+    issueDate: isPresent,
+    dueDate: isPresent,
+  };
+
+  const onSubmitForm = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // validate date
+    setDateErrors([]);
+    const dateFieldsWithError = Object.keys(dateValidator).filter((field) => {
+      const validator = dateValidator[field];
+      return !validator(formData[field]);
+    });
+    if (dateFieldsWithError.length) {
+      setDateErrors(dateFieldsWithError);
+      return;
+    }
+
+    // submit form
+  };
 
   return (
     <>
@@ -71,12 +109,22 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
           </ModalHeader>
 
           <ModalBody p={0} bgColor="#FCFCFC">
-            <Container py={8}>
+            <Container py={8} as="form" onSubmit={onSubmitForm}>
               <Text fontWeight="500">Design Studio by Roosevelt.</Text>
 
               <Stack spacing={6} my={6}>
                 <Stack>
-                  <FormControl>
+                  <FormControl isRequired>
+                    <FormLabel fontSize="sm" fontWeight="400">
+                      Service title
+                    </FormLabel>
+
+                    <Input fontSize="sm" placeholder="Design Services" />
+                  </FormControl>
+                </Stack>
+
+                <Stack>
+                  <FormControl isRequired>
                     <FormLabel fontSize="sm" fontWeight="400">
                       Invoice to
                     </FormLabel>
@@ -93,7 +141,7 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
 
                 {client === "create" && (
                   <Stack direction="row" spacing={8} justifyContent="space-between">
-                    <FormControl>
+                    <FormControl isRequired>
                       <FormLabel htmlFor="name" fontSize="sm" fontWeight="400">
                         Client name
                       </FormLabel>
@@ -109,7 +157,7 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                       />
                     </FormControl>
 
-                    <FormControl>
+                    <FormControl isRequired>
                       <FormLabel htmlFor="address" fontSize="sm" fontWeight="400">
                         Client address
                       </FormLabel>
@@ -128,7 +176,7 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                 )}
 
                 <Stack direction="row" spacing={8} justifyContent="space-between">
-                  <FormControl>
+                  <FormControl isInvalid={dateErrors.includes("issueDate")}>
                     <FormLabel htmlFor="issue-date" fontSize="sm" fontWeight="400">
                       Issue date
                     </FormLabel>
@@ -136,9 +184,11 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                     <DatePicker value={formData.issueDate} onChange={(date) => setFormData({ ...formData, issueDate: date })}>
                       <Input id="issue-date" fontSize="sm" placeholder="Select issue date" />
                     </DatePicker>
+
+                    <FormErrorMessage fontSize="xs">Issue date is required</FormErrorMessage>
                   </FormControl>
 
-                  <FormControl>
+                  <FormControl isInvalid={dateErrors.includes("dueDate")}>
                     <FormLabel htmlFor="due-date" fontSize="sm" fontWeight="400">
                       Due date
                     </FormLabel>
@@ -146,6 +196,8 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                     <DatePicker value={formData.dueDate} onChange={(date) => setFormData({ ...formData, dueDate: date })}>
                       <Input id="due-date" fontSize="sm" placeholder="Select due date" />
                     </DatePicker>
+
+                    <FormErrorMessage fontSize="xs">Due date is required</FormErrorMessage>
                   </FormControl>
                 </Stack>
               </Stack>
@@ -157,56 +209,93 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                 <Divider borderColor="rgb(0 0 0 / 26%)" />
               </Stack>
 
-              <Stack spacing={6} my={6}>
-                <Stack>
-                  <FormControl>
-                    <FormLabel fontSize="sm" fontWeight="400">
-                      Service title
-                    </FormLabel>
+              <Stack spacing={6} my={6} divider={<StackDivider borderColor="rgb(0 0 0 / 16%)" />}>
+                {formData.services.map((service: any, idx: any) => (
+                  <Stack key={idx} direction="row" spacing={8} justifyContent="space-between" alignItems="stretch">
+                    <Stack w="full" spacing={6}>
+                      <FormControl isRequired>
+                        <FormLabel fontSize="sm" fontWeight="400">
+                          Service
+                        </FormLabel>
 
-                    <Input fontSize="sm" placeholder="Design Services" />
-                  </FormControl>
-                </Stack>
+                        <Input
+                          fontSize="sm"
+                          placeholder="Landing page"
+                          value={service.title}
+                          onChange={(e) => {
+                            const services = formData.services;
+                            services[idx].title = e.target.value;
 
-                <Stack direction="row" spacing={8} justifyContent="space-between" alignItems="stretch">
-                  <Stack w="full" spacing={6}>
+                            setFormData({ ...formData, services });
+                          }}
+                        />
+                      </FormControl>
+
+                      <FormControl isRequired>
+                        <FormLabel fontSize="sm" fontWeight="400">
+                          Cost
+                        </FormLabel>
+
+                        <Input
+                          fontSize="sm"
+                          placeholder="0"
+                          type="number"
+                          value={service.cost}
+                          onChange={(e) => {
+                            const services = formData.services;
+                            services[idx].cost = e.target.value;
+
+                            setFormData({ ...formData, services });
+                          }}
+                        />
+                      </FormControl>
+                    </Stack>
+
                     <FormControl>
                       <FormLabel fontSize="sm" fontWeight="400">
-                        Service 1
+                        Description
                       </FormLabel>
 
-                      <Input fontSize="sm" placeholder="Landing page" />
-                    </FormControl>
+                      <Textarea
+                        fontSize="sm"
+                        height="full"
+                        placeholder="Optional"
+                        value={service.description}
+                        onChange={(e) => {
+                          const services = formData.services;
+                          services[idx].description = e.target.value;
 
-                    <FormControl>
-                      <FormLabel fontSize="sm" fontWeight="400">
-                        Cost
-                      </FormLabel>
-
-                      <Input fontSize="sm" placeholder="0" type="number" />
+                          setFormData({ ...formData, services });
+                        }}
+                      />
                     </FormControl>
                   </Stack>
-
-                  <FormControl>
-                    <FormLabel fontSize="sm" fontWeight="400">
-                      Due date
-                    </FormLabel>
-
-                    <Textarea fontSize="sm" height="full" placeholder="Optional" />
-                  </FormControl>
-                </Stack>
+                ))}
               </Stack>
 
-              <Stack direction="row" alignItems="center" spacing={4}>
+              <Button
+                variant="outline"
+                fontWeight="500"
+                size="sm"
+                fontSize="sm"
+                leftIcon={<Icon as={FiPlus} />}
+                rounded="xl"
+                onClick={() =>
+                  setFormData({
+                    ...formData,
+                    services: formData.services.concat({ title: "", cost: 0, description: "" }),
+                  })
+                }
+              >
+                Add Service
+              </Button>
+
+              <Stack my={6} direction="row" alignItems="center" spacing={4}>
                 <Text fontSize="sm" whiteSpace="nowrap" fontWeight="400">
-                  Total Cost: $0
+                  Total Cost: ${formData.services.reduce((total: number, service: any) => Number(total) + Number(service.cost), 0) || 0}
                 </Text>
                 <Divider borderColor="rgb(0 0 0 / 26%)" />
               </Stack>
-
-              <Button my={6} fontWeight="500" fontSize="sm" leftIcon={<Icon as={FiPlus} />} rounded="xl">
-                Add Service
-              </Button>
 
               <Stack my={2}>
                 <FormControl>
@@ -214,13 +303,34 @@ export const CreateInvoice = ({ children }: CreateInvoiceProps) => {
                     Crypto payout address
                   </FormLabel>
 
-                  <Input fontSize="sm" placeholder="0x2840...159a" />
+                  <Input
+                    fontSize="sm"
+                    placeholder="0x2840...159a"
+                    value={formData.payoutAddress}
+                    onChange={(e) => setFormData({ ...formData, payoutAddress: e.target.value })}
+                  />
 
                   <FormHelperText px={2} fontSize="xs" fontWeight="400" color="gray.700">
                     Leave blank if you choose to use your account address
                   </FormHelperText>
                 </FormControl>
               </Stack>
+
+              <Button
+                my={4}
+                fontWeight="500"
+                size="lg"
+                fontSize="sm"
+                rounded="xl"
+                bgColor="black"
+                color="#fff"
+                _hover={{ bgColor: "blackAlpha.800" }}
+                _active={{ bgColor: "blackAlpha.700" }}
+                leftIcon={<TbFileInvoice />}
+                type="submit"
+              >
+                Create Invoice
+              </Button>
             </Container>
           </ModalBody>
         </ModalContent>
